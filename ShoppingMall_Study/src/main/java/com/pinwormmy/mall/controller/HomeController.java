@@ -1,4 +1,4 @@
-package com.pinwormmy.mall;
+package com.pinwormmy.mall.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
