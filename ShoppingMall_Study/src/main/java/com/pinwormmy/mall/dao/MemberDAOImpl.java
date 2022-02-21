@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pinwormmy.mall.dto.MemberDTO;
-import com.pinwormmy.mall.dao.MemberDAO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {

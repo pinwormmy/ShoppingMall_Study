@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.pinwormmy.mall.dto.MemberDTO;
 import com.pinwormmy.mall.service.MemberService;
 
-
 @Controller
 public class MemberController {
 	
