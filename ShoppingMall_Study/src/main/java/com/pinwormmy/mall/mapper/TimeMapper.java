@@ -1,4 +1,4 @@
-package com.pinwormmy.mapper;
+package com.pinwormmy.mall.mapper;
 
 import org.apache.ibatis.annotations.Select;
 

@@ -31,10 +31,7 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<context:component-scan base-package="com.pinwormmy.sample"></context:component-scan>
-	<context:component-scan base-package="com.pinwormmy.mall.controller"></context:component-scan>
-	<context:component-scan base-package="com.pinwormmy.mall.dao"></context:component-scan>
-	<context:component-scan base-package="com.pinwormmy.mall.dto"></context:component-scan>
-	<context:component-scan base-package="com.pinwormmy.mall.service"></context:component-scan>
-	<mybatis-spring:scan base-package="com.pinwormmy.mapper"/>
+	<context:component-scan base-package="com.pinwormmy.mall"></context:component-scan>
+	<mybatis-spring:scan base-package="com.pinwormmy.mall.mapper"/>
 		
 </beans>
