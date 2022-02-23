@@ -18,7 +18,7 @@
 		}
 		
 		body{
-			font-size: 32px;
+			font-size: 24px;
 			font-weight: 400;
 		}
 		
@@ -27,13 +27,13 @@
 		    height: 50px; 
 		    width: 100%;
 		    background-color: #2d2d2d;	
-		    padding: 5px;
+		    padding: 10px;
 	    }
 	    .topMenu ul li {                       
 		    list-style: none;           
 		    color: white;               
 		    float: left;                
-		    line-height: 30px;          
+		    line-height: 20px;          
 		    vertical-align: middle;     
 		    text-align: center;
 		}
@@ -57,11 +57,12 @@
 </nav>
 	
 <h1 style="font-size:42px; font-weight:700;">
-	드디어 초기 세팅 완료!!
+	드디어 초기 세팅 완료!! 오류도 다 잡음
 </h1>
 
-<P> 지금 시간은 서버기준 ${serverTime} 입니다. </P>
-<p> 이전 코드 작성분 복사해서 다시 해보자!</p>
-<p>명상하고 뻗어버림...또 걍 자버렸다..대책필요??</p>
+<p> 이제부터  진짜 시작이다</p>
+<div>먼저 로그인부터 간다.</div>
+<p>장바구니 회원 상세정보 판매자/구매자 계정 접속 구분</p>
+<p>회원정보 구체적으로 올려야함</p>
 </body>
 </html>
