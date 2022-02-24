@@ -1,5 +1,7 @@
 package com.pinwormmy.mall.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,14 @@ public class MemberController {
 	public String submitSignUp(MemberDTO memberDTO) throws Exception {
 		
 		memberService.submitSignUp(memberDTO);
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(HttpSession httpSession) {
+		
+		
 		
 		return "redirect:/";
 	}
