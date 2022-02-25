@@ -34,7 +34,7 @@ public class MemberController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(HttpSession httpSession) {
 		
-		
+			//httpSession.setAttribute("userId", userId);
 		
 		return "redirect:/";
 	}
