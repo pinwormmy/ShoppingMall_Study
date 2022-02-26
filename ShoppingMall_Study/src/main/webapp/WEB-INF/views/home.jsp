@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,15 +46,25 @@
 <body>
 
 <nav class="topMenu">
-	<form action="/login" method="post">
+	<c:if test="${loginData == null}">
+		<form action="/login" method="post">
+			<ul>
+				<li>아이디 : <input type="text" name="userId"> </li>
+				<li>비밀번호 : <input type="password" name="userPassword">
+					<button>로그인</button> 
+					<button type="button" onclick="location.href='/signUp'">회원가입</button>
+				</li>				
+			</ul>
+		</form>
+	</c:if>
+	<c:if test="${loginData != null}">
 		<ul>
-			<li>아이디 : <input type="text" name="userId"> </li>
-			<li>비밀번호 : <input type="password" name="userPassword">
-				<button>로그인</button> 
-				<button type="button" onclick="location.href='/signUp'">회원가입</button>
-			</li>				
+			<li>
+				${loginData.userId} 님 환영합니다~! 
+				<button type="button" onclick="location.href='/logout'">로그아웃</button>
+			</li>
 		</ul>
-	</form>
+	</c:if>
 </nav>
 	
 <h1 style="font-size:42px; font-weight:700;">

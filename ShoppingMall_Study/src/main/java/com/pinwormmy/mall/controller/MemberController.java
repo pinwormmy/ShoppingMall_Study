@@ -32,9 +32,20 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(HttpSession httpSession) {
+	public String login(HttpSession httpSession, MemberDTO memberDTO) throws Exception {
 		
-			//httpSession.setAttribute("userId", userId);
+		MemberDTO loginData;
+	 	loginData = memberService.checkLoginData(memberDTO);
+		
+		httpSession.setAttribute("loginData", loginData);
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession httpSession) throws Exception {
+				
+		httpSession.invalidate();
 		
 		return "redirect:/";
 	}

@@ -19,4 +19,11 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public MemberDTO checkLoginData(MemberDTO memberDTO) throws Exception{
+		
+		return memberMapper.checkLoginData(memberDTO);
+		
+	}
+
 }
