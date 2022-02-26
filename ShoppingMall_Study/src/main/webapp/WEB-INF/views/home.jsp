@@ -38,6 +38,10 @@
 		    vertical-align: middle;     
 		    text-align: center;
 		}
+		.sellerLoginButton{
+			font-size:12px;
+			align-self:flex-end;
+		}
 		</style>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,6 +57,7 @@
 				<li>비밀번호 : <input type="password" name="userPassword">
 					<button>로그인</button> 
 					<button type="button" onclick="location.href='/signUp'">회원가입</button>
+					<button class="sellerLoginButton" onclick="location.href='/sellerLogin'">판매자 로그인</button>
 				</li>				
 			</ul>
 		</form>
@@ -68,11 +73,11 @@
 </nav>
 	
 <h1 style="font-size:42px; font-weight:700;">
-	드디어 초기 세팅 완료!! 오류도 다 잡음
+	초기 세팅 완료!
 </h1>
 
-<p> 이제부터  진짜 시작이다</p>
-<div>먼저 로그인부터 간다.</div>
+<p> 이제부터  진짜 시작이다!!</p>
+<div>로그인 기본 틀만 구현 완료</div>
 <p>장바구니 회원 상세정보 판매자/구매자 계정 접속 구분</p>
 <p>회원정보 구체적으로 올려야함</p>
 </body>

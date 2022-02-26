@@ -13,9 +13,9 @@
 			font-weight:100;
 			margin: 0;
 	    	padding : 0;
-		}
-		
-		</style>
+		}	
+	</style>
+	
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700;900&display=swap" rel="stylesheet">
@@ -40,14 +40,14 @@
 </script>
 </head>
 <body>
-
-	<form action="/submitSignUp" method="post">
-		아이디 : <input type="text" name="userId" id="userId" required><br>
-		비밀번호: <input type="password" name="userPassword" id="userPassword" required><br>
-		이메일 : <input type="text" name="userEmail" id="userEmail" required><br>
-		<button onclick="checkSignUp()">회원가입</button>
-		<button type="button" onclick="location.href='/'">취소</button>
-	</form>
-
+	<div>
+		<form action="/submitSignUp" method="post">
+			아이디 : <input type="text" name="userId" id="userId" required><br>
+			비밀번호: <input type="password" name="userPassword" id="userPassword" required><br>
+			이메일 : <input type="text" name="userEmail" id="userEmail" required><br>
+			<button onclick="checkSignUp()">회원가입</button>
+			<button type="button" onclick="location.href='/'">취소</button>
+		</form>
+	</div>
 </body>
 </html>
