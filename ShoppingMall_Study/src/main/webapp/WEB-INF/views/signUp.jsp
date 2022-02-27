@@ -13,7 +13,8 @@
 			font-weight:100;
 			margin: 0;
 	    	padding : 0;
-		}	
+		}
+			
 	</style>
 	
 	<link rel="preconnect" href="https://fonts.googleapis.com">
