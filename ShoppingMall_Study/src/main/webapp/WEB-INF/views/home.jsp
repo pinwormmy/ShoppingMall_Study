@@ -50,26 +50,35 @@
 <body>
 
 <nav class="topMenu">
-	<c:if test="${loginData == null}">
-		<form action="/login" method="post">
+	<c:choose>
+		<c:when test="${loginData.userId == 'administrator'}">
 			<ul>
-				<li>아이디 : <input type="text" name="userId"> </li>
-				<li>비밀번호 : <input type="password" name="userPassword">
-					<button>로그인</button> 
-					<button type="button" onclick="location.href='/signUp'">회원가입</button>
-					<button class="sellerLoginButton" onclick="location.href='/sellerLogin'">판매자 로그인</button>
-				</li>				
+				<li>
+					관리자 모드 : 상품 등록 및 페이지 설정 가능
+					<button type="button" onclick="location.href='/logout'">로그아웃</button>
+				</li>
 			</ul>
-		</form>
-	</c:if>
-	<c:if test="${loginData != null}">
-		<ul>
-			<li>
-				${loginData.userId} 님 환영합니다~! 
-				<button type="button" onclick="location.href='/logout'">로그아웃</button>
-			</li>
-		</ul>
-	</c:if>
+		</c:when>
+		<c:when test="${loginData != null}">
+			<ul>
+				<li>
+					${loginData.userId} 님 환영합니다~! 
+					<button type="button" onclick="location.href='/logout'">로그아웃</button>
+				</li>
+			</ul>
+		</c:when>
+		<c:otherwise>
+			<form action="/login" method="post">
+				<ul>
+					<li>아이디 : <input type="text" name="userId"> </li>
+					<li>비밀번호 : <input type="password" name="userPassword">
+						<button>로그인</button> 
+						<button type="button" onclick="location.href='/signUp'">회원가입</button>
+					</li>				
+				</ul>
+			</form>
+		</c:otherwise>
+	</c:choose>
 </nav>
 	
 <h1 style="font-size:42px; font-weight:700;">
@@ -79,7 +88,13 @@
 <p> 이제부터  진짜 시작이다!!</p>
 <div>로그인 기본 틀만 구현 완료</div>
 <p>장바구니 회원 상세정보 판매자/구매자 계정 접속 구분</p>
-<p>회원정보 구체적으로 올려야함</p>
+<p>administrator 계정을 판매자 계정으로 제작</p>
+<p>회원정보 구체적으로 제작. 보유캐시. 주문상품 등등도 구현</p>
+<p style="color:red;">창돼지는 내 방에서 깽판을 치고 있따</p>
+
+<c:if test="${loginData.userId == 'administrator'}">
+	<button type="button" onclick="location.href='/addProduct'">상품 등록</button>
+</c:if>
 
 </body>
 </html>
