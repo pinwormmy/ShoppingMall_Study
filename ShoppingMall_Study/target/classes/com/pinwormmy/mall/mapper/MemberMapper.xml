@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pinwormmy.mall.mapper.MemberMapper">
+
+	<insert id="submitSignUp">
+		insert into memberlist(userId, userPassword, userEmail)
+			values(#{userId}, #{userPassword}, #{userEmail})
+	</insert>
+	
+	<select id="checkLoginData" resultType="com.pinwormmy.mall.dto.MemberDTO">
+		select * from memberlist 
+			where userid = #{userId}
+			and userpassword = #{userPassword}
+	</select>
+  
+</mapper>

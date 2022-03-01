@@ -1,0 +1,32 @@
+package com.pinwormmy.mall.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.pinwormmy.mall.dto.ProductDTO;
+import com.pinwormmy.mall.service.ProductService;
+
+@Controller
+public class ProductController {
+	
+	@Autowired
+	private ProductService productService;
+		
+	@RequestMapping(value = "/addProduct", method = RequestMethod.GET)
+	public String addProduct() {
+		
+		return "addProduct";
+	}
+	
+	@RequestMapping(value = "/submitProduct", method = RequestMethod.GET)
+	public String submitProduct(ProductDTO productDTO) {
+		
+		productService.submitProduct(productDTO);
+		
+		return "redirect:/";
+	}
+	
+}
+

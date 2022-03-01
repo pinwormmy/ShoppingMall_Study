@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pinwormmy.mall.mapper.ProductMapper">
+
+	<insert id="submitProduct">
+		insert into productList(productNum, productName, productPrice, productDescription, regDate)
+			values(
+				seq_ProductNum.NEXTVAL, 
+				#{productName}, 
+				#{productPrice},
+				#{productDescription},
+				(to_date(sysdate, 'YYYY-MM-DD HH24:mi:SS'))
+			)
+	</insert>
+	
+	
+</mapper>
