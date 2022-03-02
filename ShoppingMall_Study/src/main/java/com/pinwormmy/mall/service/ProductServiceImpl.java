@@ -1,5 +1,7 @@
 package com.pinwormmy.mall.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,12 @@ public class ProductServiceImpl implements ProductService {
 	public void submitProduct(ProductDTO productDTO) {
 		
 		productMapper.submitProduct(productDTO);
+	}
+
+	@Override
+	public List<ProductDTO> productList(ProductDTO productDTO) {
+		
+		return productMapper.productList(productDTO);
 	}
 
 }

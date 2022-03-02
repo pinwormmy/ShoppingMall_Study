@@ -82,15 +82,22 @@
 </nav>
 	
 <h1 style="font-size:42px; font-weight:700;">
-	초기 세팅 완료!
+	쇼핑몰 만들면서 공부하기~!
 </h1>
 
-<p> 이제부터  진짜 시작이다!!</p>
 <div>로그인 기본 틀만 구현 완료</div>
+<p>상품 목록 메인화면에 띄우기. 먼저 안꾸미고 걍 띄워보기</p>
 <p>장바구니 회원 상세정보 판매자/구매자 계정 접속 구분</p>
-<p>administrator 계정을 판매자 계정으로 제작</p>
+<p>administrator 계정을 판매자 계정으로 제작 : 그니까 관리자계정만 상품등록 할 수 있게 하긔</p>
 <p>회원정보 구체적으로 제작. 보유캐시. 주문상품 등등도 구현</p>
-<p style="color:red;">창돼지는 내 방에서 깽판을 치고 있따</p>
+
+<c:forEach items="${productList}">
+
+	원래는 썸네일 띄워야함
+	${productList.productName} <br>
+	${productList.productPrice} <br>
+	
+</c:forEach>
 
 <c:if test="${loginData.userId == 'administrator'}">
 	<button type="button" onclick="location.href='/addProduct'">상품 등록</button>
