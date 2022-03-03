@@ -24,5 +24,11 @@
 	
 	</select>
 	
+	<delete id="deleteProduct">
+	
+		delete from productlist 
+			where productNum=#{productNum}
+		
+	</delete>
 	
 </mapper>

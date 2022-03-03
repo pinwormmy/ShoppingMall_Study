@@ -10,4 +10,6 @@ public interface ProductMapper {
 	
 	public List<ProductDTO> productList() throws Exception;
 
+	public void deleteProduct(ProductDTO productDTO) throws Exception;
+
 }

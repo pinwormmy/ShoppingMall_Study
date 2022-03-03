@@ -70,7 +70,8 @@
 			<form action="/login" method="post">
 				<ul>
 					<li>아이디 : <input type="text" name="userId"> </li>
-					<li>비밀번호 : <input type="password" name="userPassword">
+					<li>
+						비밀번호 : <input type="password" name="userPassword">
 						<button>로그인</button> 
 						<button type="button" onclick="location.href='/signUp'">회원가입</button>
 					</li>				
@@ -85,18 +86,27 @@
 </h1>
 
 <div>로그인 기본 틀만 구현 완료</div>
-<p>상품 목록 메인화면에 띄우기. 먼저 안꾸미고 걍 띄워보기</p>
-<p>장바구니 회원 상세정보 판매자/구매자 계정 접속 구분</p>
-<p>administrator 계정을 판매자 계정으로 제작 : 그니까 관리자계정만 상품등록 할 수 있게 하긔</p>
+<p>상품(글) 수정 및 삭제 구현하고, 글 편집기(CKEditor 사용) 구현하기-를 하려면 읽는것도 구현해야하네 ㄷㄷ</p>
+<p>상품 대표이미지로 쓸 썸네일 시스템</p>
+<p>장바구니, 상품재고 시스템 구현하기</p>
 <p>회원정보 구체적으로 제작. 보유캐시. 주문상품 등등도 구현</p>
 
+<br>
 <hr>
+<br>
 
 <c:forEach items="${productList}" var="product">
 
-	(원래는 썸네일 띄워야함) <br>
+	OOOOO썸네일이미지 필요OOOOO <br>
 	${product.productName} <br>
-	${product.productPrice} 원 <br><br>
+	${product.productPrice} 원 <br>
+	
+	<c:if test="${loginData.userId == 'administrator'}">
+		<button onclick="location.href='/modifyProduct?productNum=${product.productNum}'">수정</button>
+		<button onclick="location.href='/deleteProduct?productNum=${product.productNum}'">삭제</button><br>
+	</c:if>
+	
+	<br>
 	
 </c:forEach>
 

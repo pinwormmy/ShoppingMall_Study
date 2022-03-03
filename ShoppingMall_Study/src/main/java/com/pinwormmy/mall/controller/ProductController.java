@@ -20,6 +20,20 @@ public class ProductController {
 		return "addProduct";
 	}
 	
+	@RequestMapping(value = "/modifyProduct", method = RequestMethod.GET)
+	public String modifyProduct() {
+		
+		return "modifyProduct";
+	}
+	
+	@RequestMapping(value = "/deleteProduct", method = RequestMethod.GET)
+	public String deleteProduct(ProductDTO productDTO) throws Exception {
+		
+		productService.deleteProduct(productDTO);
+		
+		return "redirect:/";
+	}
+	
 	@RequestMapping(value = "/submitProduct", method = RequestMethod.GET)
 	public String submitProduct(ProductDTO productDTO) throws Exception {
 		

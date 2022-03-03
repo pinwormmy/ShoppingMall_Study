@@ -26,4 +26,11 @@ public class ProductServiceImpl implements ProductService {
 		return productMapper.productList();
 	}
 
+	@Override
+	public void deleteProduct(ProductDTO productDTO) throws Exception{
+		
+		productMapper.deleteProduct(productDTO);
+		
+	}
+
 }
