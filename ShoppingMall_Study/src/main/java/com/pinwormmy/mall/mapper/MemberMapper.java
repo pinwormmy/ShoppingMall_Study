@@ -4,8 +4,8 @@ import com.pinwormmy.mall.dto.MemberDTO;
 
 public interface MemberMapper {
 	
-	public void submitSignUp(MemberDTO memberDTO);
+	public void submitSignUp(MemberDTO memberDTO) throws Exception;
 
-	public MemberDTO checkLoginData(MemberDTO memberDTO);
+	public MemberDTO checkLoginData(MemberDTO memberDTO) throws Exception;
 
 }

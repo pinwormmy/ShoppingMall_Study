@@ -6,8 +6,8 @@ import com.pinwormmy.mall.dto.ProductDTO;
 
 public interface ProductMapper {
 
-	public void submitProduct(ProductDTO productDTO);
+	public void submitProduct(ProductDTO productDTO) throws Exception;
 	
-	public List<ProductDTO> productList(ProductDTO productDTO);
+	public List<ProductDTO> productList() throws Exception;
 
 }

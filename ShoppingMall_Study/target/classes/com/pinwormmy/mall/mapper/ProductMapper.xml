@@ -8,13 +8,21 @@
 	<insert id="submitProduct">
 		insert into productList(productNum, productName, productPrice, productDescription, regDate)
 			values(
-				seq_ProductNum.NEXTVAL, 
+				(seq_ProductNum.NEXTVAL), 
 				#{productName}, 
 				#{productPrice},
 				#{productDescription},
 				(to_date(sysdate, 'YYYY-MM-DD HH24:mi:SS'))
 			)
 	</insert>
+	
+	<select id="productList" resultType="com.pinwormmy.mall.dto.ProductDTO">
+	
+		select productNum, productName, productPrice, productDescription, regDate
+			from productList
+			order by productNum desc
+	
+	</select>
 	
 	
 </mapper>

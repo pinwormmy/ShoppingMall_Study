@@ -18,9 +18,11 @@ public class HomeController {
 	private ProductService productService;
 		
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
+	public String home(Model model) throws Exception {
 		
-		List<ProductDTO> productList = productService.productList;
+		List<ProductDTO> productList = productService.productList();
+		
+		model.addAttribute("productList", productList);
 		
 		return "home";
 	}

@@ -21,7 +21,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/submitProduct", method = RequestMethod.GET)
-	public String submitProduct(ProductDTO productDTO) {
+	public String submitProduct(ProductDTO productDTO) throws Exception {
 		
 		productService.submitProduct(productDTO);
 		

@@ -20,9 +20,8 @@
 		
 		body{
 			font-size: 24px;
-			font-weight: 400;
+			font-weight: 300;
 		}
-		
 		
 		.topMenu { 
 		    height: 50px; 
@@ -91,11 +90,13 @@
 <p>administrator 계정을 판매자 계정으로 제작 : 그니까 관리자계정만 상품등록 할 수 있게 하긔</p>
 <p>회원정보 구체적으로 제작. 보유캐시. 주문상품 등등도 구현</p>
 
-<c:forEach items="${productList}">
+<hr>
 
-	원래는 썸네일 띄워야함
-	${productList.productName} <br>
-	${productList.productPrice} <br>
+<c:forEach items="${productList}" var="product">
+
+	(원래는 썸네일 띄워야함) <br>
+	${product.productName} <br>
+	${product.productPrice} 원 <br><br>
 	
 </c:forEach>
 

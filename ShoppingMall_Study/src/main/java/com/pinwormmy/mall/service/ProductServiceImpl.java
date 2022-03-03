@@ -15,15 +15,15 @@ public class ProductServiceImpl implements ProductService {
 	ProductMapper productMapper;
 
 	@Override
-	public void submitProduct(ProductDTO productDTO) {
+	public void submitProduct(ProductDTO productDTO) throws Exception{
 		
 		productMapper.submitProduct(productDTO);
 	}
 
 	@Override
-	public List<ProductDTO> productList(ProductDTO productDTO) {
+	public List<ProductDTO> productList() throws Exception{
 		
-		return productMapper.productList(productDTO);
+		return productMapper.productList();
 	}
 
 }

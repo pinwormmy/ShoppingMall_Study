@@ -89,7 +89,7 @@
 	상품명 : <input type="text" name="productName" required> <br>
 	상품가격 : <input type="text" name="productPrice" required> <br>
 	상품 설명 <br>
-	<textarea name="productDescription" cols="300" rows="10"></textarea><br>
+	<textarea name="productDescription" cols="100" rows="10"></textarea><br>
 	<button>상품게시</button>
 	<button type="button" onclick="location.href='/'"> 취소 </button>
 </form>
