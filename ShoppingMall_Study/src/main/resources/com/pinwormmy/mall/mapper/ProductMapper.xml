@@ -21,7 +21,13 @@
 		select productNum, productName, productPrice, productDescription, regDate
 			from productList
 			order by productNum desc
+	</select>
 	
+	<select id="productDetails" resultType="com.pinwormmy.mall.dto.ProductDTO">
+	
+		select productNum, productName, productPrice, productDescription, regDate
+			from productList
+			where productNum=#{productNum}
 	</select>
 	
 	<delete id="deleteProduct">

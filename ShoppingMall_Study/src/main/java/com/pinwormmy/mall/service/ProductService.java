@@ -12,4 +12,6 @@ public interface ProductService {
 
 	public void deleteProduct(ProductDTO productDTO) throws Exception;
 
+	public ProductDTO productDetails(ProductDTO productDTO) throws Exception;
+
 }

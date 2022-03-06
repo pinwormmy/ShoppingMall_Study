@@ -33,4 +33,10 @@ public class ProductServiceImpl implements ProductService {
 		
 	}
 
+	@Override
+	public ProductDTO productDetails(ProductDTO productDTO) throws Exception {
+		
+		return productMapper.productDetails(productDTO);
+	}
+
 }

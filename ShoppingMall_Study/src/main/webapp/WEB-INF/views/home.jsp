@@ -23,6 +23,22 @@
 			font-weight: 300;
 		}
 		
+		a{
+			text-decoration-line:none;
+		}
+		a:link{
+			color:black;
+		}
+		a:visited{
+			color:black;
+		}
+		a:active{
+			color:black;
+		}
+		a:hover{
+			color:black;
+		}
+		
 		.topMenu { 
 		    height: 50px; 
 		    width: 100%;
@@ -41,6 +57,7 @@
 			font-size:12px;
 			align-self:flex-end;
 		}
+		
 		</style>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,8 +107,6 @@
 <p>상품 대표이미지로 쓸 썸네일 시스템</p>
 <p>장바구니, 상품재고 시스템 구현하기</p>
 <p>회원정보 구체적으로 제작. 보유캐시. 주문상품 등등도 구현</p>
-<p>이래저래 손안대고 패스하는 경우가 생긴다...여튼 잔디는 꾸준히 심자</p>
-
 <br>
 <hr>
 <br>
@@ -99,7 +114,7 @@
 <c:forEach items="${productList}" var="product">
 
 	OOOOO썸네일이미지 필요OOOOO <br>
-	${product.productName} <br>
+	<a href="/productDetails?productNum=${product.productNum}"> ${product.productName} </a>  <br> 
 	${product.productPrice} 원 <br>
 	
 	<c:if test="${loginData.userId == 'administrator'}">
