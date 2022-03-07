@@ -22,9 +22,20 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/modifyProduct", method = RequestMethod.GET)
-	public String modifyProduct() {
+	public String modifyProduct(ProductDTO productDTO, Model model) throws Exception {
 		
+		productDTO = productService.productDetails(productDTO);
+		model.addAttribute("product", productDTO);
+				
 		return "modifyProduct";
+	}
+	
+	@RequestMapping(value = "/submitModifyProduct", method = RequestMethod.POST)
+	public String submitModifyProduct(ProductDTO productDTO) throws Exception {
+		
+		productService.submitModifyProduct(productDTO);
+		
+		return "redirect:/productDetails?productNum=" + productDTO.getProductNum();
 	}
 	
 	@RequestMapping(value = "/deleteProduct", method = RequestMethod.GET)

@@ -14,4 +14,6 @@ public interface ProductService {
 
 	public ProductDTO productDetails(ProductDTO productDTO) throws Exception;
 
+	public void submitModifyProduct(ProductDTO productDTO) throws Exception;
+
 }

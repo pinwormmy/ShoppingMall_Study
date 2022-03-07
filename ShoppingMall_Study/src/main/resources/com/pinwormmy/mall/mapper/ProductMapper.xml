@@ -17,24 +17,29 @@
 	</insert>
 	
 	<select id="productList" resultType="com.pinwormmy.mall.dto.ProductDTO">
-	
 		select productNum, productName, productPrice, productDescription, regDate
 			from productList
 			order by productNum desc
 	</select>
 	
 	<select id="productDetails" resultType="com.pinwormmy.mall.dto.ProductDTO">
-	
 		select productNum, productName, productPrice, productDescription, regDate
 			from productList
 			where productNum=#{productNum}
 	</select>
 	
 	<delete id="deleteProduct">
-	
 		delete from productlist 
 			where productNum=#{productNum}
-		
 	</delete>
+	
+	<update id="submitModifyProduct">
+		update productlist 
+			SET productname = #{productname}, 
+				productName = {productName}, 
+				productPrice = {productPrice}, 
+				productDescription = {productDescription}
+			where productnum=#{productnum}
+	</update>
 	
 </mapper>

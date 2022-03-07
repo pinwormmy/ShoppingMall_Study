@@ -1,3 +1,4 @@
+
 package com.pinwormmy.mall.service;
 
 import java.util.List;
@@ -37,6 +38,12 @@ public class ProductServiceImpl implements ProductService {
 	public ProductDTO productDetails(ProductDTO productDTO) throws Exception {
 		
 		return productMapper.productDetails(productDTO);
+	}
+
+	@Override
+	public void submitModifyProduct(ProductDTO productDTO) throws Exception {
+		
+		productMapper.submitModifyProduct(productDTO);
 	}
 
 }
