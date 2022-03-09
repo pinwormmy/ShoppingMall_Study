@@ -46,18 +46,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-	<script src="/resources/ckeditor/ckeditor.js"></script>
-	<script>
-		let ckeditor_config = {
-				resize_enaleb : false,
-				enterMode : CKEDITOR.ENTER.BR,
-				shiftEnterMode : CKEDITOR.ENTER_P,
-				filebrowserUploadUrl : "/common/ckUpload"
-		};
-	</script>
-	<script>
-		CKEDITOR.replace("productDescription", ckeditor_config);
-	</script>
+	<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 </head>
 <body>
 
@@ -101,8 +90,12 @@
 	상품명 : <input type="text" name="productName" required> <br>
 	상품가격 : <input type="text" name="productPrice" required> <br>
 	상품 설명 <br>
-	<textarea name="productDescription" id="productDescription" rows="20"></textarea><br>
-	
+	<textarea name="productDescription" id="productDescription"></textarea><br>
+	<script type="text/javascript">	// 글쓰기 editor 및 사진 업로드 기능
+		CKEDITOR.replace('productDescription',
+		{filebrowserUploadUrl:'/ckUpload/imageUpload.do'
+		});
+	</script>
 	<button>상품게시</button>
 	<button type="button" onclick="location.href='/'"> 취소 </button>
 </form>
