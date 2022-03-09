@@ -17,13 +17,7 @@
 		h1{
 		font-size: 42px;
 		}
-		
-		body{
-			font-size: 24px;
-			font-weight: 400;
-		}
-		
-		
+				
 		.topMenu { 
 		    height: 50px; 
 		    width: 100%;
@@ -46,7 +40,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-	<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="/resources/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 
@@ -90,11 +84,10 @@
 	상품명 : <input type="text" name="productName" required> <br>
 	상품가격 : <input type="text" name="productPrice" required> <br>
 	상품 설명 <br>
-	<textarea name="productDescription" id="productDescription"></textarea><br>
+	<textarea name="productDescription" id="productDescription" cols="100" rows="20"></textarea><br>
 	<script type="text/javascript">	// 글쓰기 editor 및 사진 업로드 기능
 		CKEDITOR.replace('productDescription',
-		{filebrowserUploadUrl:'/ckUpload/imageUpload.do'
-		});
+		{filebrowserUploadUrl:'/ckUpload/imageUpload.do', width:'70%', height: 500 });
 	</script>
 	<button>상품게시</button>
 	<button type="button" onclick="location.href='/'"> 취소 </button>
