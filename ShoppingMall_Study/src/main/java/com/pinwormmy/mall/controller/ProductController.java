@@ -30,7 +30,7 @@ public class ProductController {
 		return "modifyProduct";
 	}
 	
-	@RequestMapping(value = "/submitModifyProduct", method = RequestMethod.POST)
+	@RequestMapping(value = "/submitModifyProduct", method = RequestMethod.GET)
 	public String submitModifyProduct(ProductDTO productDTO) throws Exception {
 		
 		productService.submitModifyProduct(productDTO);

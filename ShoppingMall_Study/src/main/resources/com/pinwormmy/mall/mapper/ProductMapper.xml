@@ -35,11 +35,10 @@
 	
 	<update id="submitModifyProduct">
 		update productlist 
-			SET productname = #{productname}, 
-				productName = {productName}, 
-				productPrice = {productPrice}, 
-				productDescription = {productDescription}
-			where productnum=#{productnum}
+			SET productName = #{productName},
+				productPrice = #{productPrice}, 
+				productDescription = #{productDescription}
+			where productNum=#{productNum}
 	</update>
 	
 </mapper>

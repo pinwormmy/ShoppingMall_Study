@@ -84,7 +84,7 @@
 	상품명 : <input type="text" name="productName" required> <br>
 	상품가격 : <input type="text" name="productPrice" required> <br>
 	상품 설명 <br>
-	<textarea name="productDescription" id="productDescription" cols="100" rows="20"></textarea><br>
+	<textarea name="productDescription" id="productDescription"></textarea><br>
 	<script type="text/javascript">	// 글쓰기 editor 및 사진 업로드 기능
 		CKEDITOR.replace('productDescription',
 		{filebrowserUploadUrl:'/ckUpload/imageUpload.do', width:'70%', height: 500 });
