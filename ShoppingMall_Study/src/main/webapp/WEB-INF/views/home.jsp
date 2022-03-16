@@ -18,11 +18,6 @@
 		font-size: 42px;
 		}
 		
-		body{
-			font-size: 24px;
-			font-weight: 300;
-		}
-		
 		a{
 			text-decoration-line:none;
 		}
@@ -104,7 +99,9 @@
 
 <p>상품 수정 버그 수정(말장난?;)..썸네일 연동시켜보자</p>
 <p>근데 먼저 썸네일 코드 뜯어보면서 공부부터 해야겠다;;</p>
-<p>감기때미 컨디션도 메롱이고해서 코드만 찬찬히 뜯어보고있다 ㅋ</p>
+<p>감기때미 컨디션도 메롱이고해서 코드만 찬찬히 뜯어보고있다 ㅋ 에디터업로드 컨트롤러 부분 알아보고</p>
+<p>근데 너무 다 뜯어보진 말고. 지친다 ㅋ 어쨋든 구현해보기</p>
+<p>가격에 쉼표 표기, 상품 등록시간 안뜨는거 고치기</p>
 <br>
 <p>상품 대표이미지로 쓸 썸네일 시스템</p>
 <p>장바구니, 상품재고 시스템 구현하기</p>
@@ -115,8 +112,10 @@
 
 <c:forEach items="${productList}" var="product">
 
-	OOOOO썸네일이미지 필요OOOOO <br>
-	<a href="/productDetails?productNum=${product.productNum}"> ${product.productName} </a>  <br> 
+	<a href="/productDetails?productNum=${product.productNum}">
+		OOOOO썸네일이미지 필요OOOOO <br>
+		${product.productName} <br> 
+	</a>
 	${product.productPrice} 원 <br>
 	
 	<c:if test="${loginData.userId == 'administrator'}">
