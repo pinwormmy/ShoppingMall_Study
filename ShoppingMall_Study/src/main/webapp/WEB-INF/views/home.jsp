@@ -97,10 +97,8 @@
 	쇼핑몰 만들면서 공부하기~!
 </h1>
 
-<p>상품 수정 버그 수정(말장난?;)..썸네일 연동시켜보자</p>
-<p>군데 그냥 글에 쓴 이미지 조정해서 링크시키면 안되나?</p>
-<p>근데 먼저 썸네일 코드 뜯어보면서 공부부터 해야겠다;;</p>
-<p>감기때미 컨디션도 메롱이고해서 코드만 찬찬히 뜯어보고있다 ㅋ 에디터업로드 컨트롤러 부분 알아보고</p>
+<p>썸네일 주소 저장시킬 DB컬럼 필요?</p>
+<p>일단 그림 리소스 폴더로 저장되게 옮기고 링크 테스트 한번더 하기</p>
 <p>가격에 쉼표 표기, 상품 등록시간 안뜨는거 고치기</p>
 <br>
 <p>상품 대표이미지로 쓸 썸네일 시스템</p>
@@ -113,7 +111,7 @@
 <c:forEach items="${productList}" var="product">
 
 	<a href="/productDetails?productNum=${product.productNum}">
-		OOOOO썸네일이미지 필요OOOOO <br>
+		<img src="https://t1.daumcdn.net/cfile/tistory/99CAED4D5DEFA9B328" height="300"> <br>
 		${product.productName} <br> 
 	</a>
 	${product.productPrice} 원 <br>
