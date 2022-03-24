@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib  prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -109,7 +110,7 @@
 <c:forEach items="${productList}" var="product">
 
 	<a href="/productDetails?productNum=${product.productNum}">
-		<img src="https://t1.daumcdn.net/cfile/tistory/99CAED4D5DEFA9B328" height="300"> <br>
+		<img src="<spring:url value='/resources/img/thumbnail_론진 린드버그 아워앵글.jpg'/>"> <br>
 		${product.productName} <br> 
 	</a>
 	${product.productPrice} 원 <br>
