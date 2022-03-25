@@ -11,6 +11,7 @@ public class ProductDTO {
 	private int productPrice;
 	private String productDescription;
 	private DATE regDate;
+	private String thumbnailPath;
 	
 
 }

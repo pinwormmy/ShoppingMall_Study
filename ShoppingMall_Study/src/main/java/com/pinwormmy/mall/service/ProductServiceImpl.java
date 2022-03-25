@@ -46,4 +46,11 @@ public class ProductServiceImpl implements ProductService {
 		productMapper.submitModifyProduct(productDTO);
 	}
 
+	@Override
+	public void sendThumbnailPath(ProductDTO productDTO) throws Exception {
+
+		productMapper.sendThumbnailPath(productDTO);
+		
+	}
+
 }

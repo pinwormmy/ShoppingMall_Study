@@ -16,4 +16,6 @@ public interface ProductService {
 
 	public void submitModifyProduct(ProductDTO productDTO) throws Exception;
 
+	public void sendThumbnailPath(ProductDTO productDTO) throws Exception;
+
 }

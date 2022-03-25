@@ -17,13 +17,13 @@
 	</insert>
 	
 	<select id="productList" resultType="com.pinwormmy.mall.dto.ProductDTO">
-		select productNum, productName, productPrice, productDescription, regDate
+		select productNum, productName, productPrice, productDescription, regDate, thumbnailPath
 			from productList
 			order by productNum desc
 	</select>
 	
 	<select id="productDetails" resultType="com.pinwormmy.mall.dto.ProductDTO">
-		select productNum, productName, productPrice, productDescription, regDate
+		select productNum, productName, productPrice, productDescription, regDate, thumbnailPath
 			from productList
 			where productNum=#{productNum}
 	</select>
@@ -41,4 +41,11 @@
 			where productNum=#{productNum}
 	</update>
 	
+	<!-- 현재 게시물 번호를 어떻게 따올지 일단 미정-->
+	
+	<update id="sendThumbnailPath">
+		update productlist 
+			SET thumbnailPath=#{thumbnailPath}			
+	</update>	
+	 
 </mapper>

@@ -110,7 +110,7 @@
 <c:forEach items="${productList}" var="product">
 
 	<a href="/productDetails?productNum=${product.productNum}">
-		<img src="<spring:url value='/resources/img/thumbnail_론진 린드버그 아워앵글.jpg'/>"> <br>
+		<img src="C:\Users\erl\git\ShoppingMall_Study\ShoppingMall_Study\src\main\webapp\resources\img/thumbnail_론진 하이드로콘퀘스트.jpg"> <br>
 		${product.productName} <br> 
 	</a>
 	${product.productPrice} 원 <br>
