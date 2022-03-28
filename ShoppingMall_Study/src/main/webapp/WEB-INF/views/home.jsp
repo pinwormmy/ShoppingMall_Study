@@ -97,6 +97,7 @@
 <h1 style="font-size:42px; font-weight:700;">
 	쇼핑몰 만들면서 공부하기~!
 </h1>
+
 <p>썸네일 주소 저장시킬 DB컬럼 필요?</p>
 <p>일단 그림 리소스 폴더로 저장되게 옮기고 링크 테스트 한번더 하기</p>
 <p>가격에 쉼표 표기, 상품 등록시간 안뜨는거 고치기</p>
@@ -110,7 +111,7 @@
 <c:forEach items="${productList}" var="product">
 
 	<a href="/productDetails?productNum=${product.productNum}">
-		<img src="${product.thumbnailPath}"><br>
+		<img src="<spring:url value='/resources/img/img_thumbnail_롤렉스 배트맨'/>" /><br>
 		${product.productName} <br> 
 	</a>
 	${product.productPrice} 원 <br>
