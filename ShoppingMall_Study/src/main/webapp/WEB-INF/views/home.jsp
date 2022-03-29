@@ -98,8 +98,9 @@
 	쇼핑몰 만들면서 공부하기~!
 </h1>
 
-<p>썸네일 주소 저장시킬 DB컬럼 필요?</p>
-<p>일단 그림 리소스 폴더로 저장되게 옮기고 링크 테스트 한번더 하기</p>
+<p>썸네일 주소 DB에 저장은 시켰는데, 그림이 바로 안나옴;</p>
+<p>로컬 폴더 새로 고침해야 나옴. 일단 데이터 전달은 되긴했고...</p>
+<p>그래도 활동무대가 서버로 가면 해결될 듯하니 다른 문제로 전환</p>
 <p>가격에 쉼표 표기, 상품 등록시간 안뜨는거 고치기</p>
 <p>상품 대표이미지로 쓸 썸네일 시스템</p>
 <p>장바구니, 상품재고 시스템 구현하기</p>
@@ -111,7 +112,7 @@
 <c:forEach items="${productList}" var="product">
 
 	<a href="/productDetails?productNum=${product.productNum}">
-		<img src="<spring:url value='/resources/img/img_thumbnail_롤렉스 배트맨'/>" /><br>
+		<img src="${product.thumbnailPath}" /><br>
 		${product.productName} <br> 
 	</a>
 	${product.productPrice} 원 <br>
