@@ -89,6 +89,7 @@
 		CKEDITOR.replace('productDescription',
 		{filebrowserUploadUrl:'/ckUpload/imageUpload.do', width:'70%', height: 500 });
 	</script>
+	<input type="hidden" name="thumbnailPath" id ="thumbnailPath">
 	<button>상품게시</button>
 	<button type="button" onclick="location.href='/'"> 취소 </button>
 </form>

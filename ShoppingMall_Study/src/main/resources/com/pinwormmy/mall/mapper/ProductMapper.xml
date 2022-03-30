@@ -6,13 +6,14 @@
 <mapper namespace="com.pinwormmy.mall.mapper.ProductMapper">
 
 	<insert id="submitProduct">
-		insert into productList(productNum, productName, productPrice, productDescription, regDate)
+		insert into productList(productNum, productName, productPrice, productDescription, regDate, thumbnailPath)
 			values(
 				(seq_ProductNum.NEXTVAL), 
 				#{productName}, 
 				#{productPrice},
 				#{productDescription},
-				(to_date(sysdate, 'YYYY-MM-DD HH24:mi:SS'))
+				(to_date(sysdate, 'YYYY-MM-DD HH24:mi:SS')),
+				#{thumbnailPath}
 			)
 	</insert>
 	
@@ -40,12 +41,4 @@
 				productDescription = #{productDescription}
 			where productNum=#{productNum}
 	</update>
-	
-	<!-- 현재 게시물 번호를 어떻게 따올지 일단 미정-->
-	
-	<update id="sendThumbnailPath">
-		update productlist 
-			SET thumbnailPath=#{thumbnailPath}			
-	</update>	
-	 
 </mapper>
