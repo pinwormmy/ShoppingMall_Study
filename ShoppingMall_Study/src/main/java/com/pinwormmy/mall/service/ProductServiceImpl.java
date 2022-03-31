@@ -17,7 +17,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public void submitProduct(ProductDTO productDTO) throws Exception{
-		
+				
 		productMapper.submitProduct(productDTO);
 	}
 
