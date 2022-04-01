@@ -89,7 +89,24 @@
 		CKEDITOR.replace('productDescription',
 		{filebrowserUploadUrl:'/ckUpload/imageUpload.do', width:'70%', height: 500 });
 	</script>
-	<input type="hidden" name="thumbnailPath" id ="thumbnailPath">
+	<div class="inputArea">
+	 <label for="gdsImg">썸네일 이미지용</label>
+	 <input type="file" id="gdsImg" name="file" />
+	 <div class="select_img"><img src="" /></div>
+ 
+	 <script>
+	  $("#gdsImg").change(function(){
+		  if(this.files && this.files[0]) {
+	    	var reader = new FileReader;
+	    	reader.onload = function(data) {
+		$(".select_img img").attr("src", data.target.result).width(500);        
+	    }
+	    reader.readAsDataURL(this.files[0]);
+	   	}
+	  });
+	 </script>
+	 <%=request.getRealPath("/") %>
+</div>
 	<button>상품게시</button>
 	<button type="button" onclick="location.href='/'"> 취소 </button>
 </form>

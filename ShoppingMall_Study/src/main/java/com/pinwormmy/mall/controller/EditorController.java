@@ -59,9 +59,9 @@ public class EditorController {
     		// String path = "C:\\Users\\erl\\Pictures" + "ckImage/";	// 이미지 경로 설정(폴더 자동 생성)
     		String ckUploadPath = path + uid + "_" + fileName;
     		String ckUploadPath_thumbnail = path + "thumbnail_" + fileName;
-    		String ckUploadPath_thumbnailLink = "/resources/img/" + "thumbnail_" + fileName;
+    		// String ckUploadPath_thumbnailLink = "/resources/img/" + "thumbnail_" + fileName;
     		
-    		productDTO.setThumbnailPath(ckUploadPath_thumbnailLink);   	
+    		// productDTO.setThumbnailPath(ckUploadPath_thumbnailLink);   	
     		/*
     		System.out.println(productDTO.getProductNum());
     		System.out.println(productDTO.getProductName());
@@ -84,13 +84,13 @@ public class EditorController {
 	    	out.write(bytes);
 	    	out.flush(); // outputStram에 저장된 데이터를 전송하고 초기화
 	    	out.close();
-	    	
+	    	/*
 	    	// 썸네일 파일 만들기
 	    	File thumbnail = new File(ckUploadPath_thumbnail);
 	    	out = new FileOutputStream(thumbnail);
 			Thumbnails.of(uploadImage).size(150, 150).toOutputStream(out);;
 	    	out.flush(); // 썸넬 전송
-	    	
+	    	*/
 	    	
 	    	String callback = request.getParameter("CKEditorFuncNum");
 	    	printWriter = response.getWriter();
