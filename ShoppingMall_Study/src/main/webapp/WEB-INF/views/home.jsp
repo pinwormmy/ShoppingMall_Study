@@ -53,6 +53,13 @@
 			font-size:12px;
 			align-self:flex-end;
 		}
+		ul, li{
+			list-style: none;
+		}
+		.productList .item{
+			width: 20%;
+			display: inline-block;
+		}
 		
 		</style>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -98,8 +105,6 @@
 	쇼핑몰 만들면서 공부하기~!
 </h1>
 
-<p>그림 뜨는것과 별개로 어쨋든 첨부그림을 submit하는 글 db로 넣어야는데</p>
-<p>결국 파일 업로드 관련 코드 공부해야함..일단 코드 뜯어보자</p>
 <p>가격에 쉼표 표기, 상품 등록시간 안뜨는거 고치기</p>
 <p>상품 대표이미지로 쓸 썸네일 시스템</p>
 <p>장바구니, 상품재고 시스템 구현하기</p>
@@ -108,22 +113,18 @@
 <hr>
 <br>
 
-<c:forEach items="${productList}" var="product">
-
-	<a href="/productDetails?productNum=${product.productNum}">
-		<img src="${product.thumbnailPath}" /><br>
-		${product.productName} <br> 
-	</a>
-	${product.productPrice} 원 <br>
-	
-	<c:if test="${loginData.userId == 'administrator'}">
-		<button onclick="location.href='/modifyProduct?productNum=${product.productNum}'">수정</button>
-		<button onclick="location.href='/deleteProduct?productNum=${product.productNum}'">삭제</button><br>
-	</c:if>
-	
-	<br>
-	
-</c:forEach>
+	<div class="productList">
+		<ul>
+			<c:forEach items="${productList}" var="product">
+				<li class="item">
+					<a href="/productDetails?productNum=${product.productNum}">
+					<img src="${product.thumbnailPath}" /><br>
+					${product.productName} </a> <br> 
+					${product.productPrice} 원 <br>		
+				</li>
+			</c:forEach>
+		</ul>
+	</div>
 
 <c:if test="${loginData.userId == 'administrator'}">
 	<button type="button" onclick="location.href='/addProduct'">상품 등록</button>

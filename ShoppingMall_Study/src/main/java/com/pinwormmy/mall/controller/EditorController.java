@@ -58,7 +58,7 @@ public class EditorController {
     		String path = "C:\\Users\\erl\\git\\ShoppingMall_Study\\ShoppingMall_Study\\src\\main\\webapp\\resources\\img/" ;
     		// String path = "C:\\Users\\erl\\Pictures" + "ckImage/";	// 이미지 경로 설정(폴더 자동 생성)
     		String ckUploadPath = path + uid + "_" + fileName;
-    		String ckUploadPath_thumbnail = path + "thumbnail_" + fileName;
+    		// String ckUploadPath_thumbnail = path + "thumbnail_" + fileName;
     		// String ckUploadPath_thumbnailLink = "/resources/img/" + "thumbnail_" + fileName;
     		
     		// productDTO.setThumbnailPath(ckUploadPath_thumbnailLink);   	
@@ -93,6 +93,7 @@ public class EditorController {
 	    	*/
 	    	
 	    	String callback = request.getParameter("CKEditorFuncNum");
+	    	
 	    	printWriter = response.getWriter();
 	    	String fileUrl = "/ckUpload/ckImgSubmit.do?uid=" + uid + "&fileName=" + fileName; // 작성화면
 	    	

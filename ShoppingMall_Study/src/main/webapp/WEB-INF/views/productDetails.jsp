@@ -72,13 +72,15 @@
 	상품 조회하기 : ${product.productName} 
 </h1>
 
-(상품 이미지(썸네일) 넣어야함) <br>
-
 상품명 : ${product.productName} <br>
 상품가격 : ${product.productPrice} <br>
 등록시간 : ${product.regDate} <br>
 상품 설명 <br>
 ${product.productDescription} <br>
+	<c:if test="${loginData.userId == 'administrator'}">
+		<button onclick="location.href='/modifyProduct?productNum=${product.productNum}'">수정</button>
+		<button onclick="location.href='/deleteProduct?productNum=${product.productNum}'">삭제</button>
+	</c:if>
 <button type="button" onclick="location.href='/'"> 메인화면으로 </button> <br>
 
 </body>
