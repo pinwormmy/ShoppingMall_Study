@@ -66,8 +66,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 </head>
-<body>
 
+<body>
 <nav class="topMenu">
 	<c:choose>
 		<c:when test="${loginData.userId == 'administrator'}">
@@ -105,6 +105,9 @@
 	쇼핑몰 만들면서 공부하기~!
 </h1>
 
+<!-- 학원 공부 여따가 복습해보긔 -->
+<!-- 일단 썸네일 구현은 하고 다른거 시도해보기 -->
+
 <p>가격에 쉼표 표기, 상품 등록시간 안뜨는거 고치기</p>
 <p>상품 대표이미지로 쓸 썸네일 시스템</p>
 <p>장바구니, 상품재고 시스템 구현하기</p>
@@ -121,6 +124,7 @@
 					<img src="${product.thumbnailPath}" /><br>
 					${product.productName} </a> <br> 
 					${product.productPrice} 원 <br>		
+					<br>
 				</li>
 			</c:forEach>
 		</ul>

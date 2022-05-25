@@ -14,7 +14,6 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,16 +22,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.pinwormmy.mall.dto.ProductDTO;
-import com.pinwormmy.mall.service.ProductService;
-
-import net.coobird.thumbnailator.Thumbnails;
 
 @Controller
 public class EditorController {
-	
-	@Autowired
-	private ProductService productService;
-	
+		
 	// 이미지 업로드
     @RequestMapping(value="ckUpload/imageUpload.do", method = RequestMethod.POST)
     public void imageUpload(HttpServletRequest request,
@@ -56,17 +49,8 @@ public class EditorController {
     		
     		//이미지 경로 생성
     		String path = "C:\\Users\\erl\\git\\ShoppingMall_Study\\ShoppingMall_Study\\src\\main\\webapp\\resources\\img/" ;
-    		// String path = "C:\\Users\\erl\\Pictures" + "ckImage/";	// 이미지 경로 설정(폴더 자동 생성)
     		String ckUploadPath = path + uid + "_" + fileName;
-    		// String ckUploadPath_thumbnail = path + "thumbnail_" + fileName;
-    		// String ckUploadPath_thumbnailLink = "/resources/img/" + "thumbnail_" + fileName;
     		
-    		// productDTO.setThumbnailPath(ckUploadPath_thumbnailLink);   	
-    		/*
-    		System.out.println(productDTO.getProductNum());
-    		System.out.println(productDTO.getProductName());
-    		System.out.println("요지경 테스트" + productDTO.getThumbnailPath());
-    		*/
     		File folder = new File(path);
     		System.out.println("path:" + path);	// 이미지 저장경로 console에 확인
     		
@@ -84,13 +68,6 @@ public class EditorController {
 	    	out.write(bytes);
 	    	out.flush(); // outputStram에 저장된 데이터를 전송하고 초기화
 	    	out.close();
-	    	/*
-	    	// 썸네일 파일 만들기
-	    	File thumbnail = new File(ckUploadPath_thumbnail);
-	    	out = new FileOutputStream(thumbnail);
-			Thumbnails.of(uploadImage).size(150, 150).toOutputStream(out);;
-	    	out.flush(); // 썸넬 전송
-	    	*/
 	    	
 	    	String callback = request.getParameter("CKEditorFuncNum");
 	    	
@@ -117,8 +94,6 @@ public class EditorController {
     public void ckSubmit(@RequestParam(value="uid") String uid, @RequestParam(value="fileName") String fileName, 
     		HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     	
-    	//서버에 저장된 이미지 경로
-    	// String path = "C:\\Users\\erl\\Pictures" + "ckImage/";	// 저장된 이미지 경로
     	String path = "C:\\Users\\erl\\git\\ShoppingMall_Study\\ShoppingMall_Study\\src\\main\\webapp\\resources\\img/" ;
     	System.out.println("서버에 저장된 이미지 경로 :" + path);
     	String sDirPath = path + uid + "_" + fileName;
