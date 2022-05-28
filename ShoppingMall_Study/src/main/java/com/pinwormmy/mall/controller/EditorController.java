@@ -28,9 +28,9 @@ public class EditorController {
 		
 	// 이미지 업로드
     @RequestMapping(value="ckUpload/imageUpload.do", method = RequestMethod.POST)
-    public void imageUpload(HttpServletRequest request,
-    		HttpServletResponse response, MultipartHttpServletRequest multiFile
-    		, @RequestParam MultipartFile upload, ProductDTO productDTO) throws Exception{
+    public void imageUpload(HttpServletRequest request, HttpServletResponse response, 
+    		MultipartHttpServletRequest multiFile, @RequestParam MultipartFile upload, 
+    		ProductDTO productDTO) throws Exception{
     	
     	// 랜덤 문자 생성
     	UUID uid = UUID.randomUUID();

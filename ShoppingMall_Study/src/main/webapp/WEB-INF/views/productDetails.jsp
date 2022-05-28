@@ -75,7 +75,7 @@
 상품명 : ${product.productName} <br>
 상품가격 : ${product.productPrice} <br>
 등록시간 : ${product.regDate} <br>
-상품 설명 <br>
+<hr>
 ${product.productDescription} <br>
 	<c:if test="${loginData.userId == 'administrator'}">
 		<button onclick="location.href='/modifyProduct?productNum=${product.productNum}'">수정</button>
