@@ -58,7 +58,7 @@ h1 {
 			</c:when>
 			<c:when test="${loginData != null}">
 				<ul>
-					<li>${loginData.userId}님 환영합니다~!
+					<li>${loginData.userId}님환영합니다~!
 						<button type="button" onclick="location.href='/logout'">로그아웃</button>
 					</li>
 				</ul>
@@ -95,28 +95,31 @@ h1 {
 				height : 500
 			});
 		</script>
-		<div class="inputArea">
-			<label for="gdsImg">썸네일 이미지용</label> 
-			<input type="file" id="gdsImg"	name="file" />
-			<div class="select_img">
+
+		<div class="selectThumbnail">
+			<label for="gdsImg">썸네일 이미지용</label><br> 
+			<input type="file"
+				id="thumbnailImage" name="thumbnailImage" />
+			<div class="showThumbnailImage">
 				<img src="" />
 			</div>
-			
+
 			<script>
-				$("#gdsImg").change(
+				$("#thumbnailImage").change(
 						function() {
 							if (this.files && this.files[0]) {
 								var reader = new FileReader;
 								reader.onload = function(data) {
-									$(".select_img img").attr("src",
+									$(".showThumbnailImage img").attr("src",
 											data.target.result).width(500);
 								}
 								reader.readAsDataURL(this.files[0]);
 							}
 						});
 			</script>
-			<%=request.getRealPath("/")%>
-		</div>
+			
+		</div><br>
+		
 		<button>상품게시</button>
 		<button type="button" onclick="location.href='/'">취소</button>
 	</form>
