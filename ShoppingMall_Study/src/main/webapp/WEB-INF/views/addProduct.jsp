@@ -97,7 +97,7 @@ h1 {
 		</script>
 
 		<div class="selectThumbnail">
-			<label for="gdsImg">썸네일 이미지용</label><br> 
+			<label for="thumbnailPath">썸네일 이미지용</label><br> 
 			<input type="file"
 				id="thumbnailPath" name="file" />
 			<div class="showThumbnailImage">
