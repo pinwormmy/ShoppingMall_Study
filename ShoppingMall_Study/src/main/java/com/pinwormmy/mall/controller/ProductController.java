@@ -1,10 +1,15 @@
 package com.pinwormmy.mall.controller;
 
+import java.io.File;
+
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.pinwormmy.mall.dto.ProductDTO;
 import com.pinwormmy.mall.service.ProductService;
@@ -14,6 +19,9 @@ public class ProductController {
 	
 	@Autowired
 	private ProductService productService;
+	
+	@Resource(name = "uploadPath")
+	private String uploadPath;
 		
 	@RequestMapping(value = "/addProduct", method = RequestMethod.GET)
 	public String addProduct() {
@@ -47,7 +55,19 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/submitProduct", method = RequestMethod.GET)
-	public String submitProduct(ProductDTO productDTO) throws Exception {
+	public String submitProduct(ProductDTO productDTO, MultipartFile file) throws Exception {
+		
+		String imgUploadPath = uploadPath + File.separator + "img";
+		String ymdPath = ThumbnailController.calcPath(imgUploadPath);
+		String fileName = null;
+
+		if(file != null) {
+		 fileName =  ThumbnailController.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath); 
+		} else {
+		 fileName = uploadPath + File.separator + "img" + File.separator + "none.jpg";
+		}
+
+		productDTO.setThumbnailPath(File.separator + "img" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
 		
 		productService.submitProduct(productDTO);
 		

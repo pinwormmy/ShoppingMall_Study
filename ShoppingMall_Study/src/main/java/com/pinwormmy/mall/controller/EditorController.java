@@ -19,18 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.pinwormmy.mall.dto.ProductDTO;
 
 @Controller
 public class EditorController {
 		
 	// 이미지 업로드
     @RequestMapping(value="ckUpload/imageUpload.do", method = RequestMethod.POST)
-    public void imageUpload(HttpServletRequest request, HttpServletResponse response, 
-    		MultipartHttpServletRequest multiFile, @RequestParam MultipartFile upload, 
-    		ProductDTO productDTO) throws Exception{
+    public void imageUpload(HttpServletRequest request, HttpServletResponse response, @RequestParam MultipartFile upload) throws Exception{
     	
     	// 랜덤 문자 생성
     	UUID uid = UUID.randomUUID();

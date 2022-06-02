@@ -99,13 +99,13 @@ h1 {
 		<div class="selectThumbnail">
 			<label for="gdsImg">썸네일 이미지용</label><br> 
 			<input type="file"
-				id="thumbnailImage" name="thumbnailImage" />
+				id="thumbnailPath" name="file" />
 			<div class="showThumbnailImage">
 				<img src="" />
 			</div>
 
 			<script>
-				$("#thumbnailImage").change(
+				$("#thumbnailPath").change(
 						function() {
 							if (this.files && this.files[0]) {
 								var reader = new FileReader;
