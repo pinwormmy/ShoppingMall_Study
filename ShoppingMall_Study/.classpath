@@ -40,5 +40,6 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="src/main/webapp/resources/img/07d68b36-30b7-46da-a7e1-baf1e9ca375c_minhanna1.jpg"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -22,7 +22,7 @@ public class ThumbnailController {
 		UUID uid = UUID.randomUUID();
 
 		String newFileName = uid + "_" + fileName;
-		String imgPath = uploadPath + ymdPath;
+		String imgPath = "C:\\Users\\erl\\git\\ShoppingMall_Study\\ShoppingMall_Study\\src\\main\\webapp\\resources\\img/" + ymdPath;
 
 		File target = new File(imgPath, newFileName);
 		FileCopyUtils.copy(fileData, target);
@@ -40,29 +40,27 @@ public class ThumbnailController {
 	}
 
 	public static String calcPath(String uploadPath) {
+				
 		Calendar cal = Calendar.getInstance();
 		String yearPath = File.separator + cal.get(Calendar.YEAR);
 		String monthPath = yearPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.MONTH) + 1);
 		String datePath = monthPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.DATE));
-
+		
 		makeDir(uploadPath, yearPath, monthPath, datePath);
-		makeDir(uploadPath, yearPath, monthPath, datePath + "\\s");
 
 		return datePath;
 	}
 
-	private static void makeDir(String uploadPath, String... paths) {
-
-		if (new File(paths[paths.length - 1]).exists()) {
-			return;
-		}
+	private static void makeDir(String uploadPath, String... paths) {		
+		
+		if (new File(paths[paths.length - 1]).exists()) 
+			return;		
 
 		for (String path : paths) {
-			File dirPath = new File(uploadPath + path);
-
-			if (!dirPath.exists()) {
+			File dirPath = 
+					new File("C:\\Users\\erl\\git\\ShoppingMall_Study\\ShoppingMall_Study\\src\\main\\webapp\\resources\\img/" + path);
+			if (!dirPath.exists()) 
 				dirPath.mkdir();
-			}
 		}
 	}
 }

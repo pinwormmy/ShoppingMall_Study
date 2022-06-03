@@ -87,11 +87,10 @@ public class EditorController {
     
     // 서버로 전송된 이미지 뿌려주기
     @RequestMapping(value="/ckUpload/ckImgSubmit.do")
-    public void ckSubmit(@RequestParam(value="uid") String uid, @RequestParam(value="fileName") String fileName, 
-    		HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    public void ckSubmit(@RequestParam(value="uid") String uid, @RequestParam(value="fileName") 
+    String fileName, HttpServletResponse response) throws ServletException, IOException{
     	
     	String path = "C:\\Users\\erl\\git\\ShoppingMall_Study\\ShoppingMall_Study\\src\\main\\webapp\\resources\\img/" ;
-    	System.out.println("서버에 저장된 이미지 경로 :" + path);
     	String sDirPath = path + uid + "_" + fileName;
     	
     	File imgFile = new File(sDirPath);

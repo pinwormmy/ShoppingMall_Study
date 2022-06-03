@@ -45,6 +45,7 @@ h1 {
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700;900&display=swap"
 	rel="stylesheet">
 <script type="text/javascript" src="/resources/ckeditor/ckeditor.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
 	<nav class="topMenu">
@@ -81,7 +82,7 @@ h1 {
 	<h1 style="font-size: 42px; font-weight: 700;">판매 상품 등록하기. 상품명.
 		상품사진. 가격. 수량체크 등등...</h1>
 
-	<form action="/submitProduct">
+	<form action="/submitProduct" method="post" enctype="multipart/form-data">
 		상품명 : <input type="text" name="productName" required> <br>
 		상품가격 : <input type="text" name="productPrice" required> <br>
 		<hr>
@@ -98,8 +99,7 @@ h1 {
 
 		<div class="selectThumbnail">
 			<label for="thumbnailPath">썸네일 이미지용</label><br> 
-			<input type="file"
-				id="thumbnailPath" name="file" />
+			<input type="file" id="thumbnailPath" name="file" />
 			<div class="showThumbnailImage">
 				<img src="" />
 			</div>
@@ -110,16 +110,16 @@ h1 {
 							if (this.files && this.files[0]) {
 								var reader = new FileReader;
 								reader.onload = function(data) {
-									$(".showThumbnailImage img").attr("src",
-											data.target.result).width(500);
+									$(".showThumbnailImage img").attr("src", data.target.result).width(300);
 								}
 								reader.readAsDataURL(this.files[0]);
 							}
 						});
 			</script>
-			
-		</div><br>
-		
+
+		</div>
+		<br>
+
 		<button>상품게시</button>
 		<button type="button" onclick="location.href='/'">취소</button>
 	</form>
