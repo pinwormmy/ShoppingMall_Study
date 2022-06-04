@@ -58,6 +58,7 @@ public class ProductController {
 	public String submitProduct(ProductDTO productDTO, MultipartFile file) throws Exception {
 
 		System.out.printf("파일 잘 받아왔나? %s \n", file);
+		System.out.printf("주소값은 잘 맞나? %s \n", uploadPath);
 
 		String imgUploadPath = uploadPath + File.separator + "img";
 		String ymdPath = ThumbnailController.calcPath(imgUploadPath);
@@ -69,10 +70,10 @@ public class ProductController {
 			System.out.printf("파일 있는지 똑띠 확인했나??(있는경우) \n");
 			fileName = ThumbnailController.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);
 			System.out.printf("파일 업로드하고, 파일명 받아왔나? : %s \n", fileName);
-			productDTO.setThumbnailPath(imgUploadPath + ymdPath + File.separator + fileName);
+			productDTO.setThumbnailPath(File.separator + "img" + ymdPath + File.separator + fileName);
 		} else {
 			System.out.printf("파일 있는지 똑띠 확인했나??(없는 경우) \n");
-			fileName = uploadPath + File.separator + "img" + File.separator + "none.jpg";
+			fileName = File.separator + "img" + File.separator + "none.jpg";
 			productDTO.setThumbnailPath(fileName);
 		}
 

@@ -5,6 +5,8 @@ import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.UUID;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 
@@ -22,7 +24,7 @@ public class ThumbnailController {
 		UUID uid = UUID.randomUUID();
 
 		String newFileName = uid + "_" + fileName;
-		String imgPath = "C:\\Users\\erl\\git\\ShoppingMall_Study\\ShoppingMall_Study\\src\\main\\webapp\\resources\\img/" + ymdPath;
+		String imgPath = uploadPath + ymdPath;
 
 		File target = new File(imgPath, newFileName);
 		FileCopyUtils.copy(fileData, target);
@@ -59,7 +61,7 @@ public class ThumbnailController {
 
 		for (String path : paths) {
 			File dirPath = 
-					new File("C:\\Users\\erl\\git\\ShoppingMall_Study\\ShoppingMall_Study\\src\\main\\webapp\\resources\\img/" + path);
+					new File(uploadPath + path);
 			if (!dirPath.exists()) 
 				dirPath.mkdir();
 		}

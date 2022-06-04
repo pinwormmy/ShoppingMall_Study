@@ -41,9 +41,7 @@ h1 {
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700;900&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 <script type="text/javascript" src="/resources/ckeditor/ckeditor.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
@@ -106,15 +104,15 @@ h1 {
 
 			<script>
 				$("#thumbnailPath").change(
-						function() {
-							if (this.files && this.files[0]) {
-								var reader = new FileReader;
-								reader.onload = function(data) {
-									$(".showThumbnailImage img").attr("src", data.target.result).width(300);
-								}
-								reader.readAsDataURL(this.files[0]);
+					function() {
+						if (this.files && this.files[0]) {
+							var reader = new FileReader;
+							reader.onload = function(data) {
+								$(".showThumbnailImage img").attr("src", data.target.result).width(300);
 							}
-						});
+							reader.readAsDataURL(this.files[0]);
+						}
+					});
 			</script>
 
 		</div>
