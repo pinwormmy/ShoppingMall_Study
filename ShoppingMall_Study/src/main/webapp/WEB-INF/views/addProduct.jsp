@@ -121,5 +121,7 @@ h1 {
 		<button>상품게시</button>
 		<button type="button" onclick="location.href='/'">취소</button>
 	</form>
+	
+<br>
 </body>
 </html>

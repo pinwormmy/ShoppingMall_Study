@@ -142,5 +142,7 @@
 	<button type="button" onclick="location.href='/addProduct'">상품 등록</button>
 </c:if>
 
+<br>
+<br>
 </body>
 </html>

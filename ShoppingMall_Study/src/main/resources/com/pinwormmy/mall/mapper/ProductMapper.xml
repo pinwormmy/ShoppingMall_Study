@@ -38,7 +38,8 @@
 		update productlist 
 			SET productName = #{productName},
 				productPrice = #{productPrice}, 
-				productDescription = #{productDescription}
+				productDescription = #{productDescription},
+				thumbnailPath = #{thumbnailPath}
 			where productNum=#{productNum}
 	</update>
 </mapper>

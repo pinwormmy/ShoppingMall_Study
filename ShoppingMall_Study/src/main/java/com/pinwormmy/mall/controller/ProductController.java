@@ -23,6 +23,7 @@ public class ProductController {
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 
+	
 	@RequestMapping(value = "/addProduct", method = RequestMethod.GET)
 	public String addProduct() {
 
@@ -38,8 +39,20 @@ public class ProductController {
 		return "modifyProduct";
 	}
 
-	@RequestMapping(value = "/submitModifyProduct", method = RequestMethod.GET)
-	public String submitModifyProduct(ProductDTO productDTO) throws Exception {
+	@RequestMapping(value = "/submitModifyProduct", method = RequestMethod.POST)
+	public String submitModifyProduct(ProductDTO productDTO, MultipartFile file) throws Exception {
+		
+		String imgUploadPath = uploadPath + File.separator + "img";
+		String ymdPath = ThumbnailController.calcPath(imgUploadPath);
+		String fileName = null;
+
+		if (file.getOriginalFilename() != null && file.getOriginalFilename() != "") {			
+			fileName = ThumbnailController.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);			
+			productDTO.setThumbnailPath(File.separator + "img" + ymdPath + File.separator + fileName);
+		} else {			
+			fileName = File.separator + "img" + File.separator + "none.jpg";
+			productDTO.setThumbnailPath(fileName);
+		}		
 
 		productService.submitModifyProduct(productDTO);
 
@@ -57,27 +70,17 @@ public class ProductController {
 	@RequestMapping(value = "/submitProduct", method = RequestMethod.POST)
 	public String submitProduct(ProductDTO productDTO, MultipartFile file) throws Exception {
 
-		System.out.printf("파일 잘 받아왔나? %s \n", file);
-		System.out.printf("주소값은 잘 맞나? %s \n", uploadPath);
-
 		String imgUploadPath = uploadPath + File.separator + "img";
 		String ymdPath = ThumbnailController.calcPath(imgUploadPath);
 		String fileName = null;
 
-		System.out.printf("날짜값 제대로 받아왔나? : %s \n", ymdPath);
-
-		if (file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
-			System.out.printf("파일 있는지 똑띠 확인했나??(있는경우) \n");
-			fileName = ThumbnailController.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);
-			System.out.printf("파일 업로드하고, 파일명 받아왔나? : %s \n", fileName);
+		if (file.getOriginalFilename() != null && file.getOriginalFilename() != "") {			
+			fileName = ThumbnailController.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);			
 			productDTO.setThumbnailPath(File.separator + "img" + ymdPath + File.separator + fileName);
-		} else {
-			System.out.printf("파일 있는지 똑띠 확인했나??(없는 경우) \n");
+		} else {			
 			fileName = File.separator + "img" + File.separator + "none.jpg";
 			productDTO.setThumbnailPath(fileName);
-		}
-
-		System.out.printf("그래서 썸네일 파일 경로 똑띠 받았나? : %s \n", productDTO.getThumbnailPath());
+		}		
 		
 		productService.submitProduct(productDTO);
 

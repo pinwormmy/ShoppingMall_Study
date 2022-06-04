@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 
 import net.coobird.thumbnailator.Thumbnails;
+import net.coobird.thumbnailator.name.Rename;
 
 @Controller
 public class ThumbnailController {
@@ -21,6 +22,7 @@ public class ThumbnailController {
 	public static String fileUpload(String uploadPath, String fileName, byte[] fileData, String ymdPath)
 			throws Exception {
 
+		// 원본 따로 두지 않고 썸네일만 업로드하는 코드로 수정
 		UUID uid = UUID.randomUUID();
 
 		String newFileName = uid + "_" + fileName;
@@ -29,14 +31,14 @@ public class ThumbnailController {
 		File target = new File(imgPath, newFileName);
 		FileCopyUtils.copy(fileData, target);
 
-		String thumbFileName = "s_" + newFileName;
+		// String thumbFileName = "s_" + newFileName;
 		File image = new File(imgPath + File.separator + newFileName);
 
-		File thumbnail = new File(imgPath + File.separator + "s" + File.separator + thumbFileName);
+		// File thumbnail = new File(imgPath + File.separator + "s" + File.separator + thumbFileName);
 
 		if (image.exists()) {
-			thumbnail.getParentFile().mkdirs();
-			Thumbnails.of(image).size(THUMB_WIDTH, THUMB_HEIGHT).toFile(thumbnail);
+			// thumbnail.getParentFile().mkdirs();
+			Thumbnails.of(image).size(THUMB_WIDTH, THUMB_HEIGHT).toFile(image);
 		}
 		
 		return newFileName;
