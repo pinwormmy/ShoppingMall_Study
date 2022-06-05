@@ -13,6 +13,8 @@ import org.springframework.util.FileCopyUtils;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.name.Rename;
 
+// 근데 이걸 컨트롤러 두는게 맞냐? 리팩토링할때 정리좀해라
+
 @Controller
 public class ThumbnailController {
 

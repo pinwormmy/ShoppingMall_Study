@@ -122,7 +122,6 @@
 <br>
 <hr>
 <br>
-
 	<div class="productList">
 		<ul>
 			<c:forEach items="${productList}" var="product">
@@ -136,7 +135,6 @@
 			</c:forEach>
 		</ul>
 	</div>
-
 <c:if test="${loginData.userId == 'administrator'}">
 	<button type="button" onclick="location.href='/addProduct'">상품 등록</button>
 </c:if>
