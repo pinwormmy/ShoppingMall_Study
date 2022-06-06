@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib  prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -129,7 +131,7 @@
 					<a href="/productDetails?productNum=${product.productNum}">
 					<img src="${product.thumbnailPath}" /><br>
 					${product.productName} </a> <br> 
-					${product.productPrice} 원 <br>		
+					<fmt:formatNumber value="${product.productPrice}" pattern="###,###,###" />원 <br>		
 					<br>
 				</li>
 			</c:forEach>

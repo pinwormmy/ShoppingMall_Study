@@ -73,7 +73,7 @@
 </h1>
 
 상품명 : ${product.productName} <br>
-상품가격 : ${product.productPrice} <br>
+상품가격 : ${product.productPrice} 원<br>
 등록시간 : ${product.regDate} <br>
 <hr>
 ${product.productDescription} <br>
