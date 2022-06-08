@@ -75,7 +75,7 @@
 
 상품명 : ${product.productName} <br>
 상품가격 : <fmt:formatNumber value="${product.productPrice}" pattern="###,###,###" />원 <br>	
-등록시간 : ${product.regDate} <br>
+등록시간 : <fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${product.regDate}"/> <br>
 <hr>
 ${product.productDescription} <br>
 	<c:if test="${loginData.userId == 'administrator'}">

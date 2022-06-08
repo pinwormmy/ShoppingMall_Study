@@ -1,7 +1,11 @@
 package com.pinwormmy.mall.dto;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
-import oracle.sql.DATE;
+
 
 @Data
 public class ProductDTO {
@@ -10,7 +14,8 @@ public class ProductDTO {
 	private String productName;
 	private int productPrice;
 	private String productDescription;
-	private DATE regDate;
+	@DateTimeFormat(pattern ="yyyy/MM/dd hh:mm:ss a")
+	private Date regDate;
 	private String thumbnailPath;
 	
 

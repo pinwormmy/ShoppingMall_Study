@@ -12,7 +12,7 @@
 				#{productName}, 
 				#{productPrice},
 				#{productDescription},
-				(to_date(sysdate, 'YYYY-MM-DD HH24:mi:SS')),
+				sysdate,
 				#{thumbnailPath}
 			)
 	</insert>
