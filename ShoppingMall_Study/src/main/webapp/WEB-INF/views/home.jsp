@@ -43,8 +43,8 @@
 	    }
 	    .topMenu ul li {                       
 		    list-style: none;           
-		    color: white;               
-		    float: left;                
+		    color: white;              
+		    float: left;     
 		    line-height: 20px;          
 		    vertical-align: middle;     
 		    text-align: center;
@@ -59,7 +59,7 @@
 		.productList .item{
 			width: 20%;
 			display: inline-block;
-		}
+		}		
 		
 		</style>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,6 +83,8 @@
 				<li>
 					${loginData.userId} 님 환영합니다~! 
 					<button type="button" onclick="location.href='/logout'">로그아웃</button>
+					<button class="btn_pull_right" onclick="location.href='/logout'">장바구니</button>
+					<button class="btn_pull_right">마이페이지</button>
 				</li>
 			</ul>
 		</c:when>
@@ -106,6 +108,7 @@
 </h1>
 
 <!-- 당분간 학원 프로젝트때문에 못 건들수도. 그래도 일단 짬나는데로 병행해서 제작하자-->
+
 <!-- 
  학습 목표
 • 웹 에플리케이션과 HTTP API 개발에 익숙한 분
@@ -120,7 +123,8 @@
 
 
 <p>장바구니, 상품재고 시스템 구현하기</p>
-<p>회원정보 구체적으로 제작. 보유캐시. 주문상품</p>
+<p>회원정보 구체적으로 제작. 보유캐시</p>
+<p>아오 CSS도 나중에 리액트할때 같이 공부하자</p>
 <br>
 <hr>
 <br>
