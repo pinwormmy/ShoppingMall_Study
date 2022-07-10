@@ -28,6 +28,8 @@
 		let userPassword = document.getElementById("userPassword").value
 		let userEmail = document.getElementById("userEmail").value
 		
+		// 아이디랑 이메일 정규표현식이랑 , 중복확인도 구현해야함
+		// 주소란에 카카오 주소 적용해보기
 		if(userId == "" || userPassword == "" || userEmail == ""){
 			alert("입력 똑바로 하시오!")
 		}
@@ -44,6 +46,7 @@
 	<div>
 		<form action="/submitSignUp" method="post">
 			아이디 : <input type="text" name="userId" id="userId" required><br>
+			아이디 : <input type="text" name="nickName" id="nickName" required><br>
 			비밀번호: <input type="password" name="userPassword" id="userPassword" required><br>
 			이메일 : <input type="text" name="userEmail" id="userEmail" required><br>
 			<button onclick="checkSignUp()">회원가입</button>
