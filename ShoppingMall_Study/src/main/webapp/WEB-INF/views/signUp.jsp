@@ -24,19 +24,25 @@
 	<script type="text/javascript">
 	function checkSignUp(){
 		
-		let userId = document.getElementById("userId").value
-		let userPassword = document.getElementById("userPassword").value
-		let userEmail = document.getElementById("userEmail").value
+		let submitSignUpForm = document.getElementById("submitSignUpForm");
+		let userId = document.getElementById("userId").value;
+		let userPassword = document.getElementById("userPassword").value;
+		let userEmail = document.getElementById("userEmail").value;
 		
 		// 아이디랑 이메일 정규표현식이랑 , 중복확인도 구현해야함
+		let idForm = /^[a-z]+[a-z0-9]{5,19}$/g;
 		// 주소란에 카카오 주소 적용해보기
+		
+		
 		if(userId == "" || userPassword == "" || userEmail == ""){
 			alert("입력 똑바로 하시오!")
-		}
-		else{
+		}else if(!idForm.test(userId)){
+			alert("ID는 영문자로 시작하는 6~20자 영어 혹은 숫자이어야 합니다;")
+		}else{
 			setTimeout(function(){
 				alert("가입 완료. 환영합니다^^")
 			},0);
+			submitSignUpForm.submit();
 		} 
 		
 	}
@@ -44,12 +50,12 @@
 </head>
 <body>
 	<div>
-		<form action="/submitSignUp" method="post">
+		<form action="/submitSignUp" id="submitSignUpForm" method="post">
 			아이디 : <input type="text" name="userId" id="userId" required><br>
-			아이디 : <input type="text" name="nickName" id="nickName" required><br>
+			닉네임 : <input type="text" name="nickName" id="nickName" required><br>
 			비밀번호: <input type="password" name="userPassword" id="userPassword" required><br>
 			이메일 : <input type="text" name="userEmail" id="userEmail" required><br>
-			<button onclick="checkSignUp()">회원가입</button>
+			<button type="button" onclick="checkSignUp()">회원가입</button>
 			<button type="button" onclick="location.href='/'">취소</button>
 		</form>
 	</div>
