@@ -24,7 +24,7 @@
 		up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/resources/img/**"
-		location="file:///c:/users/erl/git/Shopping_Mall_Study/Shopping_Mall_Study/src/main/webapp/resources/img/" />
+		location="file:///C:/SpringStudy/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp2/wtpwebapps/ShoppingMall_Study/resources/img/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->

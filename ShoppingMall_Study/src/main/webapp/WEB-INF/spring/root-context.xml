@@ -37,7 +37,7 @@
 	<!-- 업로드 패스 설정 -->
 	<bean id="uploadPath" class="java.lang.String" >
 		<constructor-arg
-			value="C:\SpringStudy\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ShoppingMall_Study\resources" />
+			value="C:\SpringStudy\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\ShoppingMall_Study\resources" />
 	</bean>
 	
 </beans>
