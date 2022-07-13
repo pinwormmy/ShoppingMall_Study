@@ -106,24 +106,23 @@ body {
 		</script>
 
 		<div class="selectThumbnail">
-			<label for="thumbnailPath">썸네일 이미지용</label><br> <input
-				type="file" id="thumbnailPath" name="file" />
+			<label for="thumbnailPath">썸네일 이미지용</label><br> 			
+			<input type="file" id="thumbnailPath" name="file" />
 			<div class="showThumbnailImage">
-				<img src="" />
+				<img src="${product.thumbnailPath}" />
+				<input type="hidden" id="thumbnailPath" name="thumbnailPath" value="${product.thumbnailPath}"/>
 			</div>
 
 			<script>
-				$("#thumbnailPath").change(
-						function() {
-							if (this.files && this.files[0]) {
-								var reader = new FileReader;
-								reader.onload = function(data) {
-									$(".showThumbnailImage img").attr("src",
-											data.target.result).width(300);
-								}
-								reader.readAsDataURL(this.files[0]);
-							}
-						});
+				$("#thumbnailPath").change(function() {
+					if (this.files && this.files[0]) {
+						var reader = new FileReader;
+						reader.onload = function(data) {
+							$(".showThumbnailImage img").attr("src", data.target.result).width(300);
+						}
+						reader.readAsDataURL(this.files[0]);
+					}
+				});
 			</script>
 
 		</div>

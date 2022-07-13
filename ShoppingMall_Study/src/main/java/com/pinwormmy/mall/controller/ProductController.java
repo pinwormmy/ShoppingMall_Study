@@ -3,6 +3,7 @@ package com.pinwormmy.mall.controller;
 import java.io.File;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,18 +41,22 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/submitModifyProduct", method = RequestMethod.POST)
-	public String submitModifyProduct(ProductDTO productDTO, MultipartFile file) throws Exception {
+	public String submitModifyProduct(ProductDTO productDTO, MultipartFile file, HttpServletRequest request) throws Exception {
+		
+		
 		
 		String imgUploadPath = uploadPath + File.separator + "img";
 		String ymdPath = ThumbnailController.calcPath(imgUploadPath);
 		String fileName = null;
 
-		if (file.getOriginalFilename() != null && file.getOriginalFilename() != "") {			
+		if (file.getOriginalFilename() != null && file.getOriginalFilename() != "") {		
+			
+			new File(uploadPath + request.getParameter("thumbnailPath")).delete();			
 			fileName = ThumbnailController.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);			
 			productDTO.setThumbnailPath(File.separator + "img" + ymdPath + File.separator + fileName);
-		} else {			
-			fileName = File.separator + "img" + File.separator + "none.jpg";
-			productDTO.setThumbnailPath(fileName);
+			
+		} else {					
+			productDTO.setThumbnailPath(request.getParameter("thumbnailPath"));
 		}		
 
 		productService.submitModifyProduct(productDTO);
