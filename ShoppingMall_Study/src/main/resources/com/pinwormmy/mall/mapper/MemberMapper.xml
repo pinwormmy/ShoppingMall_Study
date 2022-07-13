@@ -6,8 +6,8 @@
 <mapper namespace="com.pinwormmy.mall.mapper.MemberMapper">
 
 	<insert id="submitSignUp">
-		insert into memberlist(userId, userPassword, userEmail)
-			values(#{userId}, #{userPassword}, #{userEmail})
+		insert into memberlist
+			values(#{userId}, #{userPassword}, #{userEmail}, #{nickName}, #{address})
 	</insert>
 	
 	<select id="checkLoginData" resultType="com.pinwormmy.mall.dto.MemberDTO">

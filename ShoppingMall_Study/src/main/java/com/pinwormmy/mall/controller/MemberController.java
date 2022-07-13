@@ -24,9 +24,13 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/submitSignUp", method = RequestMethod.POST)
-	public String submitSignUp(MemberDTO memberDTO) throws Exception {
+	public String submitSignUp(MemberDTO memberDTO, HttpSession httpSession) throws Exception {
 		
-		memberService.submitSignUp(memberDTO);
+		memberService.submitSignUp(memberDTO);		
+		
+		// 회원가입 완료시 로그인도 같이
+		memberDTO = memberService.checkLoginData(memberDTO);		
+		httpSession.setAttribute("loginData", memberDTO);
 		
 		return "redirect:/";
 	}

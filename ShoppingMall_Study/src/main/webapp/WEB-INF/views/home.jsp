@@ -81,10 +81,10 @@
 		<c:when test="${loginData != null}">
 			<ul>
 				<li>
-					${loginData.userId} 님 환영합니다~! 
+					${loginData.nickName} 님 환영합니다~! 
 					<button type="button" onclick="location.href='/logout'">로그아웃</button>
-					<button class="btn_pull_right" onclick="location.href='/logout'">장바구니</button>
-					<button class="btn_pull_right">마이페이지</button>
+					<button type="button" class="btn_pull_right">장바구니</button>
+					<button type="button" class="btn_pull_right">마이페이지</button>
 				</li>
 			</ul>
 		</c:when>

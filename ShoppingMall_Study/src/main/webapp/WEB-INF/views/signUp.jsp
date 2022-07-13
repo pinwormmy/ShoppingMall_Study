@@ -94,6 +94,8 @@
 			submitSignUpForm.userEmail.focus();
 			return false;
 		}
+		
+		alert("가입 완료. 환영~!~!")
 		submitSignUpForm.submit();
 	}
 </script>
