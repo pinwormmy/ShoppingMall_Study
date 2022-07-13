@@ -39,13 +39,14 @@
 <script type="text/javascript">
 	
 	let submitSignUpForm = document.getElementById("submitSignUpForm");
-	
+	// 아디 중복확인 ajax포함해서 적용해보기
+	// 이메일 인증해보기
 	// 주소란에 카카오 주소 적용해보기
 		
 	function checkSignupForm() {
 			
 		let isId = /^[a-z]+[a-z0-9]{5,19}$/g;
-		let isPassword = /^{4,?}$/;
+		let isPassword = /\S{4,}/;
 		let isEmail = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 			
 		if (submitSignUpForm.userId.value == "") {
