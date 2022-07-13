@@ -93,8 +93,7 @@
 			alert("이메일 양식을 확인해주세요!!");
 			submitSignUpForm.userEmail.focus();
 			return false;
-		}
-		
+		}		
 		alert("가입 완료. 환영~!~!")
 		submitSignUpForm.submit();
 	}
