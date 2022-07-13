@@ -45,6 +45,8 @@
 	function checkSignupForm() {
 			
 		let isId = /^[a-z]+[a-z0-9]{5,19}$/g;
+		let isPassword = /^{4,?}$/;
+		let isEmail = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 			
 		if (submitSignUpForm.userId.value == "") {
 			alert("ID를 입력하세요!!");
@@ -52,13 +54,18 @@
 			return false;
 		}
 		if(!isId.test(submitSignUpForm.userId.value)){
-			alert("ID는 영문자로 시작하는 6~20자 영어 혹은 숫자이어야 합니다;");
+			alert("ID는 영문자로 시작하는, 6~20자 영어 혹은 숫자이어야 합니다;");
 			submitSignUpForm.userId.focus();
 			return false;
 		}
 		if (submitSignUpForm.userPassword.value == "") {
 			alert("비밀번호를 입력하세요!!");
 			submitSignUpForm.pw.focus();
+			return false;
+		}
+		if(!isPassword.test(submitSignUpForm.userPassword.value)){
+			alert("비밀번호는 4자리 이상이어야 합니다;");
+			submitSignUpForm.userPassword.focus();
 			return false;
 		}
 		if (submitSignUpForm.userPassword2.value == "") {
@@ -80,7 +87,12 @@
 			alert("이메일을 입력하세요!!");
 			submitSignUpForm.userEmail.focus();
 			return false;
-		}		
+		}
+		if(!isEmail.test(submitSignUpForm.userEmail.value)){
+			alert("이메일 양식을 확인해주세요!!");
+			submitSignUpForm.userEmail.focus();
+			return false;
+		}
 		submitSignUpForm.submit();
 	}
 </script>
