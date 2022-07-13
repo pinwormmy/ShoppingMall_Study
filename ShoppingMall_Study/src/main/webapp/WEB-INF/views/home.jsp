@@ -107,8 +107,6 @@
 	쇼핑몰 만들면서 공부하기~!
 </h1>
 
-<!-- 당분간 학원 프로젝트때문에 못 건들수도. 그래도 일단 짬나는데로 병행해서 제작하자-->
-
 <!-- 
  학습 목표
 • 웹 에플리케이션과 HTTP API 개발에 익숙한 분
@@ -143,8 +141,8 @@
 <c:if test="${loginData.userId == 'administrator'}">
 	<button type="button" onclick="location.href='/addProduct'">상품 등록</button>
 </c:if>
+<br>
+<br>
 
-<br>
-<br>
 </body>
 </html>
