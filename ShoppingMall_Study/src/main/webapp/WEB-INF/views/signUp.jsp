@@ -18,13 +18,14 @@
 	</style>
 	
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+	<script src="js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 	<div>
 		<form action="/submitSignUp" id="submitSignUpForm" method="post">
-			아이디 : <input type="text" name="userId" id="userId" required><br>
+			아이디 : <input type="text" name="userId" id="userId" class="userId" required><br>
 			닉네임 : <input type="text" name="nickName" id="nickName" required><br>
 			비밀번호: <input type="password" name="userPassword" id="userPassword" required><br>
 			비밀번호 확인 : <input type="password" name="userPassword2" id="userPassword2" required><br>
@@ -97,6 +98,29 @@
 		alert("가입 완료. 환영~!~!")
 		submitSignUpForm.submit();
 	}
+	
+	$('.userId').focusout(function(){
+		let userId = $('.userId').val();
+		
+		$.ajax({
+			url : "idCheckService",
+			type : "post",
+			data : {userId:userId},
+			datatype : 'json',
+			success : function(result){
+				if(result == 0){
+					$("#checkId").html('사용할 수 없는 ID입니다.');
+					$("#checkId").attr('color', 'red');
+				}else{
+					$("#checkId").html('사용할 수 있는 ID입니다.');
+					$("#checkId").attr('color', 'green');
+				}
+			},
+			error : function(){
+				alert("서버 요청 실패...")
+			}
+		})
+	})
 </script>
 
 </body>
