@@ -20,4 +20,9 @@ public class OrderServiceImpl implements OrderService {
 		return orderMapper.showCart(userId);
 	}
 
+	@Override
+	public void addCart(CartDTO cart) throws Exception {
+		orderMapper.addCart(cart);
+	}
+
 }

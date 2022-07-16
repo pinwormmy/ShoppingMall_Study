@@ -19,11 +19,19 @@ public class OrderController {
 	private OrderService orderService;
 	
 	@RequestMapping(value = "/showCart", method = RequestMethod.GET)
-	public String addProduct(Model model, String userId) throws Exception {
+	public String showCart(Model model, String userId) throws Exception {
 				
 		List<CartDTO> showCart = orderService.showCart(userId);		
 		model.addAttribute("cartList", showCart);
 
 		return "cart";
+	}
+	
+	@RequestMapping(value = "/addCart", method = RequestMethod.GET)
+	public String addCart(Model model, CartDTO cart) throws Exception {
+				
+		orderService.addCart(cart);
+
+		return "redirect:/showCart?userId=" + cart.getUserId();
 	}
 }

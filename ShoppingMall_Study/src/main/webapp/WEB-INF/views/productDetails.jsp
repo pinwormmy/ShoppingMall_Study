@@ -18,11 +18,11 @@
 
 <hr>
 <c:if test="${member != null}">
-	<form action="/addCart" method="post">
-		넣을 갯수 : <input type="text" name="quantity" id="quantity">
+	<form action="/addCart" id="addCartForm">
+		넣을 갯수 : <input type="text" name="quantity" id="quantity" size=1>
 		<input type="hidden" name="productNum" value="${product.productNum}">
 		<input type="hidden" name="userId" value="${member.userId}">
-		<button type="button">장바구니 넣기</button>
+		<button type="button" onclick="checkQuantityPositiveNumber();">장바구니 넣기</button>
 	</form>
 </c:if>
 ${product.productDescription} <br>
@@ -33,9 +33,15 @@ ${product.productDescription} <br>
 <button type="button" onclick="location.href='/'"> 메인화면으로 </button> <br>
 
 	<script>
-		let quantity = document.getElementById("quantity");
+		let addCartForm = document.getElementById("addCartForm");
+		
 		function checkQuantityPositiveNumber(){
-
+			if(addCartForm.quantity.value > 0){
+				alert("상품을 장바구니에 담았습니다~!");
+				addCartForm.submit();
+			}else{
+				alert("수량을 하나 이상 넣어주세요~!!")
+			}
 		}
 	</script>
 

@@ -9,7 +9,16 @@
 		select cartNum, productNum, userId, quantity
 			from cart
 			where userId=#{userId}
-			order by productNum desc
+			order by cartNum asc
 	</select>	
+	
+	<insert id="addCart">
+		insert into cart values(
+			CARTNUM_SEQ.NEXTVAL, 
+			#{productNum}, 
+			#{quantity},			
+			#{userId}
+			)
+	</insert>
   
 </mapper>

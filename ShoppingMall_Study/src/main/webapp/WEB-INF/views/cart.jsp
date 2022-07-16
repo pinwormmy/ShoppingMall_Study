@@ -7,18 +7,14 @@
 	<title>장바구기 보기</title>
 </head>
 <body>
-
 <%@ include file="./include/header.jspf" %>
-
 <br>
-<p>원래는 상품명, 썸네일작게, 수량</p>
+	<h4>원래는 상품명, 썸네일작게, 수량</h4>
 <br>
-
-<c:if test="${empty cart}">장바구니가 비었습니다. 맘에 드는 상품을 골라보세요~!</c:if>
-<c:forEach var="cart" items="${cartList}">	
-	${cart.productNum} : ${cart.quantity} 개
-</c:forEach>
-
+	<c:if test="${empty cartList}">장바구니가 비었습니다. 맘에 드는 상품을 골라보세요~!</c:if>
+	<c:forEach var="cart" items="${cartList}">	
+		${cart.productNum} : ${cart.quantity} 개 <br>
+	</c:forEach>
 <br>
 <br>
 <button type="button" onclick="location.href='/'"> 메인화면으로 </button> <br>

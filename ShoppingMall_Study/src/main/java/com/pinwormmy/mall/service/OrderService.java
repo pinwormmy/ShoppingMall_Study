@@ -7,4 +7,6 @@ import com.pinwormmy.mall.dto.CartDTO;
 public interface OrderService {
 
 	public List<CartDTO> showCart(String userId) throws Exception;
+
+	public void addCart(CartDTO cart) throws Exception;
 }
