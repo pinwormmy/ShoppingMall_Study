@@ -1,28 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-	<title>쇼핑몰 만들며 공부하긔</title>
-	<style>
-		*{
-			font-family: 'Noto Sans KR', sans-serif;
-			font-size:20px;
-			font-weight:100;
-			margin: 0;
-	    	padding : 0;
-		}
-			
-	</style>
-	
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-	<script src="js/jquery-3.6.0.min.js"></script>
+	<title>회원가입 - 쇼핑몰 만들며 공부하긔</title>
 </head>
 <body>
+
+<h2>회원가입: 중복확인도 구현해라</h2>
+
 	<div>
 		<form action="/submitSignUp" id="submitSignUpForm" method="post">
 			아이디 : <input type="text" name="userId" id="userId" class="userId" required><br>

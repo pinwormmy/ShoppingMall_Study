@@ -1,7 +1,10 @@
 package com.pinwormmy.mall.service;
 
-public interface OrderService {
-	
-	// 카트부터 작성하기
+import java.util.List;
 
+import com.pinwormmy.mall.dto.CartDTO;
+
+public interface OrderService {
+
+	public List<CartDTO> showCart(String userId) throws Exception;
 }

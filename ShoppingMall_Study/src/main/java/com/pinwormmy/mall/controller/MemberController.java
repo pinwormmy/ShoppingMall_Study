@@ -30,7 +30,7 @@ public class MemberController {
 		
 		// 회원가입 완료시 로그인도 같이
 		memberDTO = memberService.checkLoginData(memberDTO);		
-		httpSession.setAttribute("loginData", memberDTO);
+		httpSession.setAttribute("member", memberDTO);
 		
 		return "redirect:/";
 	}
@@ -41,7 +41,7 @@ public class MemberController {
 		MemberDTO loginData;
 	 	loginData = memberService.checkLoginData(memberDTO);
 		
-		httpSession.setAttribute("loginData", loginData);
+		httpSession.setAttribute("member", loginData);
 		
 		return "redirect:/";
 	}
