@@ -20,7 +20,6 @@ public class OrderController {
 	
 	@RequestMapping(value = "/showCart", method = RequestMethod.GET)
 	public String showCart(Model model, String userId) throws Exception {
-				
 		List<CartDTO> showCart = orderService.showCart(userId);		
 		model.addAttribute("cartList", showCart);
 
@@ -28,10 +27,16 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value = "/addCart", method = RequestMethod.GET)
-	public String addCart(Model model, CartDTO cart) throws Exception {
-				
+	public String addCart(Model model, CartDTO cart) throws Exception {				
 		orderService.addCart(cart);
-
+		
+		return "redirect:/showCart?userId=" + cart.getUserId();
+	}
+	
+	@RequestMapping(value = "/deleteCart", method = RequestMethod.GET)
+	public String deleteCart(CartDTO cart) throws Exception {
+		orderService.deleteCart(cart.getCartNum());
+		
 		return "redirect:/showCart?userId=" + cart.getUserId();
 	}
 }

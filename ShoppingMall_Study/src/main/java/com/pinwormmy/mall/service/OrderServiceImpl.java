@@ -25,4 +25,8 @@ public class OrderServiceImpl implements OrderService {
 		orderMapper.addCart(cart);
 	}
 
+	@Override
+	public void deleteCart(int cartNum) throws Exception {
+		orderMapper.deleteCart(cartNum);		
+	}
 }

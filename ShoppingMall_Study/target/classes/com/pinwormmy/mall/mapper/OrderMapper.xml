@@ -20,5 +20,10 @@
 			#{userId}
 			)
 	</insert>
+	
+	<delete id="deleteCart">
+		DELETE FROM CART
+    		WHERE cartNum=#{cartNum}
+	</delete>
   
 </mapper>
