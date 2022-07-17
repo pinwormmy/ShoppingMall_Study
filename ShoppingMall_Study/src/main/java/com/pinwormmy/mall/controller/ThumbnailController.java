@@ -29,11 +29,8 @@ public class ThumbnailController {
 
 		String newFileName = uid + "_" + fileName;
 		String imgPath = uploadPath + ymdPath;
-
 		File target = new File(imgPath, newFileName);
 		FileCopyUtils.copy(fileData, target);
-
-		// String thumbFileName = "s_" + newFileName;
 		File image = new File(imgPath + File.separator + newFileName);
 
 		// File thumbnail = new File(imgPath + File.separator + "s" + File.separator + thumbFileName);

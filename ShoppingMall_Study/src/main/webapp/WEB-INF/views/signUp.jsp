@@ -22,7 +22,6 @@
 		</form>
 	</div>
 	
-	
 <script type="text/javascript">
 	
 	let submitSignUpForm = document.getElementById("submitSignUpForm");
