@@ -9,4 +9,6 @@ public class CartDTO {
 	private int productNum;
 	private String userId;
 	private int quantity;
+	
+	private ProductDTO produtDTO;
 }

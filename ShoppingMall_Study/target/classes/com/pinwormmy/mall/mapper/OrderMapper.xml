@@ -5,11 +5,27 @@
   
 <mapper namespace="com.pinwormmy.mall.mapper.OrderMapper">
 
-	<select id="showCart" resultType="com.pinwormmy.mall.dto.CartDTO">
-		select cartNum, productNum, userId, quantity
-			from cart
-			where userId=#{userId}
-			order by cartNum asc
+	<resultMap type="com.pinwormmy.mall.dto.ProductDTO" id="produtDTO">
+		<result column="produtNum" property="produtNum"/>
+		<result column="productName" property="productName"/>
+		<result column="productPrice" property="productPrice"/>
+		<result column="thumbnailPath" property="thumbnailPath"/>		
+	</resultMap>
+
+	<resultMap type="com.pinwormmy.mall.dto.CartDTO" id="cartDTO">
+		<result column="CartNum" property="CartNum"/>
+		<result column="ProductNum" property="ProductNum"/>
+		<result column="Quantity" property="Quantity"/>
+		<result column="userId" property="userId"/>
+		<collection property="productDTO" resultMap="productDTO"/>
+	</resultMap>
+
+	<select id="showCart" parameterType="cartDTO" resultMap="cartDTO">
+		select a.cartNum, a.productNum, a.userId, a.quantity, b.productName, b.productPrice, b.thumbnailpath
+			from cart a, productList b
+			where a.productNum=b.productNum
+            and userId=#{userId}
+			order by cartNum asc;
 	</select>	
 	
 	<insert id="addCart">
