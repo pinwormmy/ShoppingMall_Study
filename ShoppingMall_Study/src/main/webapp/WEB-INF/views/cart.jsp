@@ -9,12 +9,13 @@
 <body>
 <%@ include file="./include/header.jspf" %>
 <br>
-	<h4>원래는 상품명, 썸네일작게, 수량</h4>
+	<h4>나중에 테이블로 깔끔하게 정렬</h4>
+	<hr>
 <br>
 	<c:if test="${empty cartList}">장바구니가 비었습니다. 맘에 드는 상품을 골라보세요~!</c:if>
 	<c:forEach var="cart" items="${cartList}">	
-		<img src="${cart.thumbnailPath}" height="150">
-		${cart.productName} : ${cart.quantity} 개. 총 : ${cart.price * cart.quantity} 원
+		<img src="${cart.productDTO.thumbnailPath}" height="80">
+		${cart.productDTO.productName} : ${cart.quantity} 개. 총가격 : ${cart.productDTO.productPrice * cart.quantity} 원
 		<button type="button" onclick="location.href='/deleteCart?userId=${cart.userId}&cartNum=${cart.cartNum}'">삭제</button><br>
 	</c:forEach>
 <br>

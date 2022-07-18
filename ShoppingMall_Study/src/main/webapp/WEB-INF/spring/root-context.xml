@@ -27,6 +27,7 @@
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="datasource"></property>
+		<property name="configLocation" value="classpath:/com/pinwormmy/mall/mybatis-config.xml"></property>
 	</bean>	
 		
 	<!-- Root Context: defines shared resources visible to all other web components -->
