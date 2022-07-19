@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.pinwormmy.mall.dto.CartDTO;
+import com.pinwormmy.mall.dto.ProductDTO;
 import com.pinwormmy.mall.service.OrderService;
 
 @Controller
@@ -38,5 +39,13 @@ public class OrderController {
 		orderService.deleteCart(cart.getCartNum());
 		
 		return "redirect:/showCart?userId=" + cart.getUserId();
+	}
+	
+	@RequestMapping(value = "/purchasePage", method = RequestMethod.GET)
+	public String purchasePage(Model model, String userId) throws Exception {
+		List<CartDTO> showCart = orderService.showCart(userId);		
+		model.addAttribute("cartList", showCart);
+
+		return "purchasePage";
 	}
 }

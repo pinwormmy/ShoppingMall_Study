@@ -43,18 +43,14 @@ public class ProductController {
 	@RequestMapping(value = "/submitModifyProduct", method = RequestMethod.POST)
 	public String submitModifyProduct(ProductDTO productDTO, MultipartFile file, HttpServletRequest request) throws Exception {
 		
-		
-		
 		String imgUploadPath = uploadPath + File.separator + "img";
 		String ymdPath = ThumbnailController.calcPath(imgUploadPath);
 		String fileName = null;
 
 		if (file.getOriginalFilename() != null && file.getOriginalFilename() != "") {		
-			
 			new File(uploadPath + request.getParameter("thumbnailPath")).delete();			
 			fileName = ThumbnailController.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);			
 			productDTO.setThumbnailPath(File.separator + "img" + ymdPath + File.separator + fileName);
-			
 		} else {					
 			productDTO.setThumbnailPath(request.getParameter("thumbnailPath"));
 		}		
@@ -100,5 +96,7 @@ public class ProductController {
 
 		return "productDetails";
 	}
+	
+	
 
 }
