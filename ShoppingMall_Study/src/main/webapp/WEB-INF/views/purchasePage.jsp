@@ -24,6 +24,15 @@
  - Jenkins
  -->
  
+ 장바구니 리스트 더 간단버전으로~<br>
+ <hr>
+<c:set var="totalPrice" value="0" />
+	<c:forEach var="cart" items="${cartList}">	
+		${cart.productDTO.productName} : ${cart.quantity} 개. 
+		총가격 : <fmt:formatNumber value="${cart.productDTO.productPrice * cart.quantity}" pattern="###,###,###" /> 원<br>
+		<c:set var="totalPrice" value="${totalPrice +  cart.productDTO.productPrice * cart.quantity}"/>
+	</c:forEach>
+ 
 수령할 주소 : <br>
 <textarea name="address" cols="70" rows="2">${member.address}</textarea><br>
 
@@ -31,18 +40,15 @@
 			<input type="radio" value="무통장 입금">무통장입금
 			<input type="radio" value="휴대폰 결제">휴대폰결제
 			<br>
-번호 입력 : <input type="text"><br>
+번호 입력 : <input type="text" required><br>
 
-	<c:set var="totalPrice" value="0" />
-	<c:forEach var="cart" items="${cartList}">	
-		<c:set var="totalPrice" value="${totalPrice +  cart.productDTO.productPrice * cart.quantity}"/>
-	</c:forEach>
-			
-결제금액 : <fmt:formatNumber value="${totalPrice}" pattern="###,###,###" /> 원 <br>
+<h4>결제금액 : <fmt:formatNumber value="${totalPrice}" pattern="###,###,###" /> 원</h4> <br>
 
-	
-	
+<hr>
+<br>
 <button type="button">결제</button>
+<button type="button" onclick="location.href='/cart?userId=${member.userId}'">이전화면</button>
+<button type="button" onclick="location.href='/'">메인화면</button>
 
 </body>
 </html>
