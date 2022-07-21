@@ -55,6 +55,11 @@
 			)
 	</insert>
 	
+	<delete id="resetCart">
+		DELETE FROM CART
+    		WHERE userId=#{userId}
+	</delete>
+	
 	<select id="showOrderList" resultType="com.pinwormmy.mall.dto.OrderInfoDTO">
 		select orderNum, userId, address, paymentType, price, regDate, credit_num, status
 			from orderInfo

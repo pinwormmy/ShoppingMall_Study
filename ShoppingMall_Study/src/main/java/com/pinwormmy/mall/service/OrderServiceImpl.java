@@ -41,4 +41,9 @@ public class OrderServiceImpl implements OrderService {
 	public List<OrderInfoDTO> showOrderList(String userId) throws Exception {
 		return orderMapper.showOrderList(userId);
 	}
+
+	@Override
+	public void resetCart(String userId) throws Exception {
+		orderMapper.resetCart(userId);	
+	}
 }

@@ -53,6 +53,7 @@ public class OrderController {
 	public String orderProduct(OrderInfoDTO orderInfo) throws Exception {
 				
 		orderService.order(orderInfo);	
+		orderService.resetCart(orderInfo.getUserId());
 		
 		// 일단 메인화면으로 보내기
 		return "redirect:/";

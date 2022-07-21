@@ -16,4 +16,6 @@ public interface OrderService {
 	public void order(OrderInfoDTO orderInfo) throws Exception;
 
 	public List<OrderInfoDTO> showOrderList(String userId) throws Exception;
+
+	public void resetCart(String userId) throws Exception;
 }
