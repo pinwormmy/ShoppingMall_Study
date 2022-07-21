@@ -17,7 +17,7 @@
 등록시간 : <fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${product.regDate}"/> <br>
 
 <hr>
-<c:if test="${member != null}">
+<c:if test="${member != null and member.userId != 'administrator'}">
 	<form action="/addCart" id="addCartForm">
 		넣을 갯수 : <input type="text" name="quantity" id="quantity" size=1>
 		<input type="hidden" name="productNum" value="${product.productNum}">
