@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.pinwormmy.mall.dto.CartDTO;
 import com.pinwormmy.mall.dto.OrderInfoDTO;
-import com.pinwormmy.mall.dto.ProductDTO;
 import com.pinwormmy.mall.service.OrderService;
 
 @Controller
@@ -50,12 +49,21 @@ public class OrderController {
 		return "purchasePage";
 	}
 	
-	@RequestMapping(value = "/order", method = RequestMethod.POST)
-	public String order(Model model, OrderInfoDTO orderInfo) throws Exception {
+	@RequestMapping(value = "/orderProduct", method = RequestMethod.POST)
+	public String orderProduct(OrderInfoDTO orderInfo) throws Exception {
 				
-		orderService.order(orderInfo);
+		orderService.order(orderInfo);	
 		
-		// 아직 페이지 안만들어서 그냥 메인으로
+		// 일단 메인화면으로 보내기
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/showOrderList", method = RequestMethod.GET)
+	public String orderList(Model model, String userId) throws Exception {
+				
+		List<OrderInfoDTO> orderList = orderService.showOrderList(userId);		
+		model.addAttribute("orderList", orderList);
+		
+		return "orderList";
 	}
 }

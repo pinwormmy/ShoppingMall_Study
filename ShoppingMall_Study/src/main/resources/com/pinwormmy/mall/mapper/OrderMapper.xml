@@ -54,5 +54,12 @@
 			#{status}
 			)
 	</insert>
+	
+	<select id="showOrderList" resultType="com.pinwormmy.mall.dto.OrderInfoDTO">
+		select orderNum, userId, address, paymentType, price, regDate, credit_num, status
+			from orderInfo
+			where userId=#{userId}
+			order by orderNum asc
+	</select>	
   
 </mapper>

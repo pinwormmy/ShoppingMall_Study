@@ -14,4 +14,6 @@ public interface OrderService {
 	public void deleteCart(int cartNum) throws Exception;
 
 	public void order(OrderInfoDTO orderInfo) throws Exception;
+
+	public List<OrderInfoDTO> showOrderList(String userId) throws Exception;
 }

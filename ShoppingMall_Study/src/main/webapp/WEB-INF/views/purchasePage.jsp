@@ -33,7 +33,7 @@
 		<c:set var="totalPrice" value="${totalPrice +  cart.productDTO.productPrice * cart.quantity}"/>
 	</c:forEach>
 
-<form action="/order" method="post">
+<form action="/orderProduct" method="post">
 
 수령할 주소 : <br>
 <input type="hidden" name="userId" value="${member.userId}">

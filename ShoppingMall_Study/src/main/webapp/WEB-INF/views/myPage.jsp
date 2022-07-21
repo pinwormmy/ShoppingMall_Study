@@ -23,9 +23,9 @@
  - Git
  - Jenkins
  -->
-
+ <br>
 <button type="button">회원 정보</button>
-<button type="button">주문 목록</button>
-
+<button type="button" onclick="location.href='/showOrderList?userId=${member.userId}'">주문 목록</button>
+<br>
 </body>
 </html>

@@ -36,4 +36,9 @@ public class OrderServiceImpl implements OrderService {
 		orderMapper.order(orderInfo);
 		
 	}
+
+	@Override
+	public List<OrderInfoDTO> showOrderList(String userId) throws Exception {
+		return orderMapper.showOrderList(userId);
+	}
 }

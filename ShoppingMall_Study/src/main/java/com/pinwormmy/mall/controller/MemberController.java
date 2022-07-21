@@ -54,4 +54,9 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
+	public String myPage() {
+		
+		return "myPage";
+	}
 }
