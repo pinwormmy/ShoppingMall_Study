@@ -81,6 +81,7 @@
 					<button type="button" onclick="location.href='/logout'">로그아웃</button>
 					<button type="button" class="btn_pull_right" onclick="location.href='/showCart?userId=${member.userId}'">장바구니</button>
 					<button type="button" class="btn_pull_right" onclick="location.href='/myPage'">마이페이지</button>
+					<button type="button" class="btn_pull_right" onclick="location.href='/freeBoard'">자유게시판</button>
 				</li>
 			</ul>
 		</c:when>
