@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pinwormmy.mall.dto.CartDTO;
+import com.pinwormmy.mall.dto.OrderInfoDTO;
 import com.pinwormmy.mall.mapper.OrderMapper;
 
 @Service
@@ -28,5 +29,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public void deleteCart(int cartNum) throws Exception {
 		orderMapper.deleteCart(cartNum);		
+	}
+
+	@Override
+	public void order(OrderInfoDTO orderInfo) throws Exception {
+		orderMapper.order(orderInfo);
+		
 	}
 }

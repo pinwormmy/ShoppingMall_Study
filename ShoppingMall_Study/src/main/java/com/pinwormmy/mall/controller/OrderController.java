@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.pinwormmy.mall.dto.CartDTO;
+import com.pinwormmy.mall.dto.OrderInfoDTO;
 import com.pinwormmy.mall.dto.ProductDTO;
 import com.pinwormmy.mall.service.OrderService;
 
@@ -47,5 +48,14 @@ public class OrderController {
 		model.addAttribute("cartList", showCart);
 
 		return "purchasePage";
+	}
+	
+	@RequestMapping(value = "/order", method = RequestMethod.POST)
+	public String order(Model model, OrderInfoDTO orderInfo) throws Exception {
+				
+		orderService.order(orderInfo);
+		
+		// 아직 페이지 안만들어서 그냥 메인으로
+		return "redirect:/";
 	}
 }

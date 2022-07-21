@@ -32,22 +32,27 @@
 		총가격 : <fmt:formatNumber value="${cart.productDTO.productPrice * cart.quantity}" pattern="###,###,###" /> 원<br>
 		<c:set var="totalPrice" value="${totalPrice +  cart.productDTO.productPrice * cart.quantity}"/>
 	</c:forEach>
- 
+
+<form action="/order" method="post">
+
 수령할 주소 : <br>
+<input type="hidden" name="userId" value="${member.userId}">
+<input type="hidden" name="price" value="${totalPrice}">
+<input type="hidden" name="status" value="상품준비중">
 <textarea name="address" cols="70" rows="2">${member.address}</textarea><br>
 
-결제수단 : <input type="radio" value="신용카드" checked>신용카드
-			<input type="radio" value="무통장 입금">무통장입금
-			<input type="radio" value="휴대폰 결제">휴대폰결제
+결제수단 : <input type="radio" name="paymentType" value="creditCard" checked>신용카드
+			<input type="radio" name="paymentType" value="deposit">무통장입금
+			<input type="radio" name="paymentType" value="mobile">휴대폰결제
 			<br>
-번호 입력 : <input type="text" required><br>
+번호 입력 : <input type="text" name="creditNum" required><br>
 
 <h4>결제금액 : <fmt:formatNumber value="${totalPrice}" pattern="###,###,###" /> 원</h4> <br>
-
 <hr>
 <br>
-<button type="button">결제</button>
-<button type="button" onclick="location.href='/cart?userId=${member.userId}'">이전화면</button>
+<button>결제</button>
+</form>
+<button type="button" onclick="location.href='/showCart?userId=${member.userId}'">이전화면</button>
 <button type="button" onclick="location.href='/'">메인화면</button>
 
 </body>

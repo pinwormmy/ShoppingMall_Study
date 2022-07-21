@@ -41,5 +41,18 @@
 		DELETE FROM CART
     		WHERE cartNum=#{cartNum}
 	</delete>
+	
+	<insert id="order">
+		insert into orderInfo values(
+			ORDERINFO_SEQ.NEXTVAL,
+			#{userId},
+			#{address},
+			#{paymentType}, 
+			#{price},			
+			sysdate,
+			#{creditNum},
+			#{status}
+			)
+	</insert>
   
 </mapper>
