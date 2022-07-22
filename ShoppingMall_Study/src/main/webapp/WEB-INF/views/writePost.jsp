@@ -24,7 +24,7 @@
 			});
 		</script>		
 		<button>게시하기</button>
-		<button type="button" onclick="location.href='/freeboard'">취소</button>
+		<button type="button" onclick="location.href='/freeBoard'">취소</button>
 	</form>
 <br>
 </body>

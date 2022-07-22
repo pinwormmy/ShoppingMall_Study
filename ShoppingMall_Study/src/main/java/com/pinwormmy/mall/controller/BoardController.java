@@ -29,5 +29,11 @@ public class BoardController {
 		return "writePost";
 	}
 	
+	@RequestMapping(value = "/submitPost", method = RequestMethod.GET)
+	public String submitPost() throws Exception {
+		
+		return "redirect:/freeBoard";
+	}
+	
 }
 
