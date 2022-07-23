@@ -2,8 +2,8 @@ package com.pinwormmy.mall.mapper;
 
 import java.util.List;
 
-import com.pinwormmy.mall.dto.CartDTO;
-import com.pinwormmy.mall.dto.OrderInfoDTO;
+import com.pinwormmy.mall.order.CartDTO;
+import com.pinwormmy.mall.order.OrderInfoDTO;
 
 public interface OrderMapper {
 

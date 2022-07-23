@@ -10,7 +10,7 @@
 			values(#{userId}, #{userPassword}, #{userEmail}, #{nickName}, #{address})
 	</insert>
 	
-	<select id="checkLoginData" resultType="com.pinwormmy.mall.dto.MemberDTO">
+	<select id="checkLoginData" resultType="com.pinwormmy.mall.member.MemberDTO">
 		select * from memberlist 
 			where userid = #{userId}
 			and userpassword = #{userPassword}

@@ -1,7 +1,5 @@
 
-package com.pinwormmy.mall.service;
-
-import com.pinwormmy.mall.dto.MemberDTO;
+package com.pinwormmy.mall.member;
 
 public interface MemberService {
 	

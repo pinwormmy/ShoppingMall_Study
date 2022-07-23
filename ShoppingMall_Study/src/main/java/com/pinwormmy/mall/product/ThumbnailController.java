@@ -1,4 +1,4 @@
-package com.pinwormmy.mall.controller;
+package com.pinwormmy.mall.product;
 
 import java.io.File;
 import java.text.DecimalFormat;

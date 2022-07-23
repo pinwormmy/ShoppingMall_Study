@@ -1,4 +1,4 @@
-package com.pinwormmy.mall.dto;
+package com.pinwormmy.mall.member;
 
 import lombok.Data;
 

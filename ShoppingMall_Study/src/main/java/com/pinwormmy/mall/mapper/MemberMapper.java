@@ -1,6 +1,6 @@
 package com.pinwormmy.mall.mapper;
 
-import com.pinwormmy.mall.dto.MemberDTO;
+import com.pinwormmy.mall.member.MemberDTO;
 
 public interface MemberMapper {
 	

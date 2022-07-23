@@ -1,9 +1,6 @@
-package com.pinwormmy.mall.service;
+package com.pinwormmy.mall.order;
 
 import java.util.List;
-
-import com.pinwormmy.mall.dto.CartDTO;
-import com.pinwormmy.mall.dto.OrderInfoDTO;
 
 public interface OrderService {
 

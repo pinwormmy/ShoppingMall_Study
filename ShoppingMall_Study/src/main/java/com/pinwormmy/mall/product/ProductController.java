@@ -1,4 +1,4 @@
-package com.pinwormmy.mall.controller;
+package com.pinwormmy.mall.product;
 
 import java.io.File;
 
@@ -11,9 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.pinwormmy.mall.dto.ProductDTO;
-import com.pinwormmy.mall.service.ProductService;
 
 @Controller
 public class ProductController {

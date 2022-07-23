@@ -1,4 +1,4 @@
-package com.pinwormmy.mall.controller;
+package com.pinwormmy.mall.board;
 
 import java.util.List;
 

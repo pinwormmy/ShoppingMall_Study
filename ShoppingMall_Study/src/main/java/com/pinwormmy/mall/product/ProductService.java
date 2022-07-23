@@ -1,8 +1,6 @@
-package com.pinwormmy.mall.service;
+package com.pinwormmy.mall.product;
 
 import java.util.List;
-
-import com.pinwormmy.mall.dto.ProductDTO;
 
 public interface ProductService {
 

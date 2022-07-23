@@ -5,14 +5,14 @@
   
 <mapper namespace="com.pinwormmy.mall.mapper.OrderMapper">
 
-	<resultMap type="com.pinwormmy.mall.dto.ProductDTO" id="product">
+	<resultMap type="com.pinwormmy.mall.product.ProductDTO" id="product">
 		<result column="produtNum" property="produtNum"/>
 		<result column="productName" property="productName"/>
 		<result column="productPrice" property="productPrice"/>
 		<result column="thumbnailPath" property="thumbnailPath"/>		
 	</resultMap>
 
-	<resultMap type="com.pinwormmy.mall.dto.CartDTO" id="cartDTO">
+	<resultMap type="com.pinwormmy.mall.order.CartDTO" id="cartDTO">
 		<result column="cartNum" property="cartNum"/>
 		<result column="productNum" property="productNum"/>
 		<result column="quantity" property="quantity"/>
@@ -60,7 +60,7 @@
     		WHERE userId=#{userId}
 	</delete>
 	
-	<select id="showOrderList" resultType="com.pinwormmy.mall.dto.OrderInfoDTO">
+	<select id="showOrderList" resultType="com.pinwormmy.mall.order.OrderInfoDTO">
 		select orderNum, userId, address, paymentType, price, regDate, credit_num, status
 			from orderInfo
 			where userId=#{userId}

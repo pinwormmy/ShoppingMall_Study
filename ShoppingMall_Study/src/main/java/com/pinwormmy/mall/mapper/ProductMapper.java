@@ -2,7 +2,7 @@ package com.pinwormmy.mall.mapper;
 
 import java.util.List;
 
-import com.pinwormmy.mall.dto.ProductDTO;
+import com.pinwormmy.mall.product.ProductDTO;
 
 public interface ProductMapper {
 

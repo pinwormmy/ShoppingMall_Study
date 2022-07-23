@@ -1,4 +1,4 @@
-package com.pinwormmy.mall.controller;
+package com.pinwormmy.mall;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.pinwormmy.mall.dto.ProductDTO;
-import com.pinwormmy.mall.service.ProductService;
+import com.pinwormmy.mall.product.ProductDTO;
+import com.pinwormmy.mall.product.ProductService;
 
 @Controller
 public class HomeController {

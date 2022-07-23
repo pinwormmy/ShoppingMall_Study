@@ -1,9 +1,8 @@
-package com.pinwormmy.mall.service;
+package com.pinwormmy.mall.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pinwormmy.mall.dto.MemberDTO;
 import com.pinwormmy.mall.mapper.MemberMapper;
 
 @Service

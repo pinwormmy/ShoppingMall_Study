@@ -17,13 +17,13 @@
 			)
 	</insert>
 	
-	<select id="productList" resultType="com.pinwormmy.mall.dto.ProductDTO">
+	<select id="productList" resultType="com.pinwormmy.mall.product.ProductDTO">
 		select productNum, productName, productPrice, productDescription, regDate, thumbnailPath
 			from productList
 			order by productNum desc
 	</select>
 	
-	<select id="productDetails" resultType="com.pinwormmy.mall.dto.ProductDTO">
+	<select id="productDetails" resultType="com.pinwormmy.mall.product.ProductDTO">
 		select productNum, productName, productPrice, productDescription, regDate, thumbnailPath
 			from productList
 			where productNum=#{productNum}

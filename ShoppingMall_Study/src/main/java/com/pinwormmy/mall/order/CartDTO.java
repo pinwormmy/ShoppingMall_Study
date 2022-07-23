@@ -1,4 +1,6 @@
-package com.pinwormmy.mall.dto;
+package com.pinwormmy.mall.order;
+
+import com.pinwormmy.mall.product.ProductDTO;
 
 import lombok.Data;
 

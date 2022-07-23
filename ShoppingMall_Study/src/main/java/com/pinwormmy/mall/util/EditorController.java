@@ -1,4 +1,4 @@
-package com.pinwormmy.mall.controller;
+package com.pinwormmy.mall.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

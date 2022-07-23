@@ -1,12 +1,11 @@
 
-package com.pinwormmy.mall.service;
+package com.pinwormmy.mall.product;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pinwormmy.mall.dto.ProductDTO;
 import com.pinwormmy.mall.mapper.ProductMapper;
 
 @Service
