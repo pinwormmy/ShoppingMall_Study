@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class BoardController {
 	
-	//@Autowired
-	//private BoardService boardService;
+	@Autowired
+	private BoardService boardService;
 		
 	@RequestMapping(value = "/freeBoard", method = RequestMethod.GET)
 	public String goFreeboard(Model model) throws Exception {
@@ -31,6 +31,8 @@ public class BoardController {
 	
 	@RequestMapping(value = "/submitPost", method = RequestMethod.GET)
 	public String submitPost() throws Exception {
+		
+		// boardService.submitPost(freeBoardDTO);
 		
 		return "redirect:/freeBoard";
 	}
