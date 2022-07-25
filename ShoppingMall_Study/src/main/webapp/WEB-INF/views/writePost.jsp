@@ -13,6 +13,7 @@
 <%@ include file="./include/header.jspf" %>
 <br>
 	<form action="/submitPost" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="writer" value="${member.userId}">
 		제목 <input type="text" name="title" size="70" required> <br>		
 		<textarea name="content" id="content"></textarea><br>
 		<script type="text/javascript">

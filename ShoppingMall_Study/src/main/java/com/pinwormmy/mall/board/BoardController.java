@@ -17,8 +17,8 @@ public class BoardController {
 	@RequestMapping(value = "/freeBoard", method = RequestMethod.GET)
 	public String goFreeboard(Model model) throws Exception {
 		
-		//List<ProductDTO> productList = productService.productList();		
-		//model.addAttribute("productList", productList);
+		List<FreeBoardDTO> postList = boardService.showPostList();		
+		model.addAttribute("postList", postList);
 		
 		return "freeBoard";
 	}
@@ -29,10 +29,10 @@ public class BoardController {
 		return "writePost";
 	}
 	
-	@RequestMapping(value = "/submitPost", method = RequestMethod.GET)
-	public String submitPost() throws Exception {
+	@RequestMapping(value = "/submitPost", method = RequestMethod.POST)
+	public String submitPost(FreeBoardDTO freeBoardDTO) throws Exception {
 		
-		// boardService.submitPost(freeBoardDTO);
+		boardService.submitPost(freeBoardDTO);
 		
 		return "redirect:/freeBoard";
 	}
