@@ -22,5 +22,10 @@ public class BoardServiceImpl implements BoardService {
 	public List<FreeBoardDTO> showPostList() throws Exception {		
 		return boardMapper.showPostList();
 	}
+
+	@Override
+	public FreeBoardDTO readPost(int postNum) throws Exception {
+		return boardMapper.readPost(postNum);
+	}
 	
 }

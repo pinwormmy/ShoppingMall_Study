@@ -15,7 +15,7 @@
 <hr>
 	<c:if test="${empty postList}">작성된 글이 없습니다. 글쓰기 버튼을 누르면 작성할 수 있습니다~!</c:if>
 	<c:forEach var="post" items="${postList}">	
-		${post.postNum} | ${post.title} | ${post.writer} | ${post.regDate} | ${post.views} | <br>
+		${post.postNum} | <a href="/readPost?postNum=${post.postNum}">${post.title}</a> | ${post.writer} | ${post.regDate} | ${post.views} | <br>
 	</c:forEach>
 <hr>
 <br>

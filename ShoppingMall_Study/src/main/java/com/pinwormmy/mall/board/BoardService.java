@@ -8,4 +8,6 @@ public interface BoardService {
 
 	public List<FreeBoardDTO> showPostList() throws Exception;
 
+	public FreeBoardDTO readPost(int postNum) throws Exception;
+
 }

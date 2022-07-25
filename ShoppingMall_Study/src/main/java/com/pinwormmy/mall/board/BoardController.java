@@ -37,5 +37,12 @@ public class BoardController {
 		return "redirect:/freeBoard";
 	}
 	
+	@RequestMapping(value = "/readPost", method = RequestMethod.GET)
+	public String readPost(Model model, int postNum) throws Exception {		
+		FreeBoardDTO post = boardService.readPost(postNum);
+		model.addAttribute("post", post);
+		return "readPost";
+	}
+	
 }
 

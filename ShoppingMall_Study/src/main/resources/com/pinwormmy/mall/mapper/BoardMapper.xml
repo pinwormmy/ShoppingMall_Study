@@ -15,5 +15,11 @@
 			from freeBoard
 			order by post_num desc
 	</select>
+	
+	<select id="readPost" resultType="com.pinwormmy.mall.board.FreeBoardDTO">
+		select post_Num, title, content, writer, reg_date, views
+			from freeBoard
+			where post_num=#{postNum}
+	</select>
 	  
 </mapper>
