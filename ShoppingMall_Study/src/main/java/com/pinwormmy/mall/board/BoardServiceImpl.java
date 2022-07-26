@@ -32,5 +32,10 @@ public class BoardServiceImpl implements BoardService {
 	public void submitModifyPost(FreeBoardDTO freeBoardDTO) throws Exception {
 		boardMapper.submitModifyPost(freeBoardDTO);		
 	}
+
+	@Override
+	public void deletePost(int postNum) throws Exception {
+		boardMapper.deletePost(postNum);		
+	}
 	
 }

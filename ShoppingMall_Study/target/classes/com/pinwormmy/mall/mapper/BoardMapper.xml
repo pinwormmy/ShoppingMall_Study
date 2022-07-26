@@ -27,4 +27,9 @@
 		    set title=#{title}, content=#{content} 
 		    where post_num=#{postNum}
 	</insert>
+	
+	<delete id="deletePost">
+		DELETE FROM freeBoard
+    		WHERE post_num=#{postNum}
+	</delete>
 </mapper>

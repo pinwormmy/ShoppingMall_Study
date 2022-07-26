@@ -51,5 +51,11 @@ public class BoardController {
 		boardService.submitModifyPost(freeBoardDTO);		
 		return "redirect:/readPost?postNum=" + freeBoardDTO.getPostNum();
 	}
+	
+	@RequestMapping(value = "/deletePost", method = RequestMethod.GET)
+	public String deletePost(int postNum) throws Exception {		
+		boardService.deletePost(postNum);		
+		return "redirect:/freeBoard";
+	}
 }
 

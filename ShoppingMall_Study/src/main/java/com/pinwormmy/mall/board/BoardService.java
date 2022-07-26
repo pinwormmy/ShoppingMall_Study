@@ -12,4 +12,6 @@ public interface BoardService {
 
 	public void submitModifyPost(FreeBoardDTO freeBoardDTO) throws Exception;
 
+	public void deletePost(int postNum) throws Exception;
+
 }
