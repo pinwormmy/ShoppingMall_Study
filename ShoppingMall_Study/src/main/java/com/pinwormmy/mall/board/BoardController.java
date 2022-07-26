@@ -15,25 +15,20 @@ public class BoardController {
 	private BoardService boardService;
 		
 	@RequestMapping(value = "/freeBoard", method = RequestMethod.GET)
-	public String goFreeboard(Model model) throws Exception {
-		
+	public String goFreeboard(Model model) throws Exception {		
 		List<FreeBoardDTO> postList = boardService.showPostList();		
-		model.addAttribute("postList", postList);
-		
+		model.addAttribute("postList", postList);		
 		return "freeBoard";
 	}
 	
 	@RequestMapping(value = "/writePost", method = RequestMethod.GET)
-	public String writePost() throws Exception {
-		
+	public String writePost() throws Exception {		
 		return "writePost";
 	}
 	
 	@RequestMapping(value = "/submitPost", method = RequestMethod.POST)
-	public String submitPost(FreeBoardDTO freeBoardDTO) throws Exception {
-		
-		boardService.submitPost(freeBoardDTO);
-		
+	public String submitPost(FreeBoardDTO freeBoardDTO) throws Exception {		
+		boardService.submitPost(freeBoardDTO);		
 		return "redirect:/freeBoard";
 	}
 	
@@ -44,5 +39,17 @@ public class BoardController {
 		return "readPost";
 	}
 	
+	@RequestMapping(value = "/modifyPost", method = RequestMethod.GET)
+	public String modifyPost(Model model, int postNum) throws Exception {	
+		FreeBoardDTO post = boardService.readPost(postNum);
+		model.addAttribute("post", post);
+		return "modifyPost";
+	}
+	
+	@RequestMapping(value = "/submitModifyPost", method = RequestMethod.POST)
+	public String submitModifyPost(FreeBoardDTO freeBoardDTO) throws Exception {		
+		boardService.submitModifyPost(freeBoardDTO);		
+		return "redirect:/readPost?postNum=" + freeBoardDTO.getPostNum();
+	}
 }
 

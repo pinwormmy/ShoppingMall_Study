@@ -10,4 +10,6 @@ public interface BoardService {
 
 	public FreeBoardDTO readPost(int postNum) throws Exception;
 
+	public void submitModifyPost(FreeBoardDTO freeBoardDTO) throws Exception;
+
 }

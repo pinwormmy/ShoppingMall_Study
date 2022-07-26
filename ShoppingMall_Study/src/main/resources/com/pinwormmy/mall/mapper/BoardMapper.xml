@@ -22,4 +22,9 @@
 			where post_num=#{postNum}
 	</select>
 	  
+	<insert id="submitModifyPost">
+		update freeBoard 
+		    set title=#{title}, content=#{content} 
+		    where post_num=#{postNum}
+	</insert>
 </mapper>

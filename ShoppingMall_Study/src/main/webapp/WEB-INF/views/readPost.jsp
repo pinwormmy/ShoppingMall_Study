@@ -19,6 +19,10 @@
 	조회수 : ${post.views}<br>
 	${post.content} <br>
 	
+<c:if test="${member.userId == post.writer or member.userId == 'administrator'}">
+	<button type="button" onclick="location.href='/modifyPost?postNum=${post.postNum}'">수정</button>	
+	<button type="button" onclick="location.href='/deletePost?postNum=${post.postNum}'">삭제</button>	
+</c:if>	
 	<button type="button" onclick="location.href='/freeBoard'">목록</button>
 	<br><br>
 </body>

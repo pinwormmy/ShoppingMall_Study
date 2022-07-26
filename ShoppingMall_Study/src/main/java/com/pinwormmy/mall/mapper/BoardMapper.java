@@ -10,6 +10,7 @@ public interface BoardMapper {
 
 	public List<FreeBoardDTO> showPostList() throws Exception;
 
-	public FreeBoardDTO readPost(int postNum);
+	public FreeBoardDTO readPost(int postNum) throws Exception;
 
+	public void submitModifyPost(FreeBoardDTO freeBoardDTO) throws Exception;
 }
