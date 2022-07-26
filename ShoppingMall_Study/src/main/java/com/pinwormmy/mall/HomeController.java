@@ -21,6 +21,7 @@ public class HomeController {
 	public String home(Model model) throws Exception {		
 		List<ProductDTO> productList = productService.productList();		
 		model.addAttribute("productList", productList);		
+		
 		return "home";
 	}
 	
