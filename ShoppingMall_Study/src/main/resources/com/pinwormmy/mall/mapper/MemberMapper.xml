@@ -17,7 +17,7 @@
 	</select>
 	
 	<update id="submitModifyMember">
-		update into memberList
+		update memberList
 			set userPassword=#{userPassword}, userEmail=#{userEmail}, nickName=#{nickName}, address=#{address}
 			where userId=#{userId}
 	</update>

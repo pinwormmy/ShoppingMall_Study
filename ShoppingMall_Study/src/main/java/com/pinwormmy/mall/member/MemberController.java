@@ -45,9 +45,7 @@ public class MemberController {
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession httpSession) throws Exception {
-				
 		httpSession.invalidate();
-		
 		return "redirect:/";
 	}
 	
@@ -65,7 +63,8 @@ public class MemberController {
 	
 	@RequestMapping(value = "/submitModifyMember", method = RequestMethod.POST)
 	public String submitModifyMember(MemberDTO memberDTO, HttpSession httpSession) throws Exception {
-		memberService.submitModifyMember(memberDTO);		
+		memberService.submitModifyMember(memberDTO);
+		httpSession.invalidate(); // 회원정보 수정 후 로그아웃처리.
 		return "redirect:/";
 	}
 }
