@@ -4,6 +4,7 @@
 <html>
 <head>
 	<title>회원가입 - 쇼핑몰 만들며 공부하긔</title>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 
@@ -11,8 +12,10 @@
 
 	<div>
 		<form action="/submitSignUp" id="submitSignUpForm" method="post">
-			아이디 : <input type="text" name="userId" id="userId" class="userId" required><br>
-			닉네임 : <input type="text" name="nickName" id="nickName" required><br>
+			아이디 : <input type="text" name="userId" id="userId" required>
+			<span id="isUniqueId"></span><br>
+			닉네임 : <input type="text" name="nickName" id="nickName" required>
+			<span id="isUniqueNickname"></span><br>
 			비밀번호: <input type="password" name="userPassword" id="userPassword" required><br>
 			비밀번호 확인 : <input type="password" name="userPassword2" id="userPassword2" required><br>
 			이메일 : <input type="email" name="userEmail" id="userEmail" required><br>
@@ -25,8 +28,8 @@
 <script type="text/javascript">
 	
 	let submitSignUpForm = document.getElementById("submitSignUpForm");
-	// 아디 중복확인 ajax포함해서 적용해보기
-	// 이메일 인증해보기
+	let checkUniqueId = false;
+	let checkUniqueNickname = false;
 	// 주소란에 카카오 주소 적용해보기
 		
 	function checkSignupForm() {
@@ -43,6 +46,21 @@
 		if(!isId.test(submitSignUpForm.userId.value)){
 			alert("ID는 영문자로 시작하는, 6~20자 영어 혹은 숫자이어야 합니다;");
 			submitSignUpForm.userId.focus();
+			return false;
+		}
+		if(checkUniqueId == false){
+			alert("중복되지 않은 ID를 입력하세요!!");
+			submitSignUpForm.userId.focus();
+			return false;
+		}
+		if (submitSignUpForm.nickName.value == "") {
+			alert("닉네임을 입력하세요!!");
+			submitSignUpForm.mName.focus();
+			return false;
+		}
+		if(checkUniqueNickname == false){
+			alert("중복되지 않은 별명를 입력하세요!!");
+			submitSignUpForm.nickName.focus();
 			return false;
 		}
 		if (submitSignUpForm.userPassword.value == "") {
@@ -65,11 +83,6 @@
 			submitSignUpForm.pw.focus();
 			return false;
 		}
-		if (submitSignUpForm.nickName.value == "") {
-			alert("닉네임을 입력하세요!!");
-			submitSignUpForm.mName.focus();
-			return false;
-		}
 		if (submitSignUpForm.userEmail.value == "") {
 			alert("이메일을 입력하세요!!");
 			submitSignUpForm.userEmail.focus();
@@ -80,33 +93,67 @@
 			submitSignUpForm.userEmail.focus();
 			return false;
 		}		
-		alert("가입 완료. 환영~!~!")
+		alert("가입 완료. 환영~!~!", checkUniqueId);
 		submitSignUpForm.submit();
 	}
-	/*
-	$('.userId').focusout(function(){
-		let userId = $('.userId').val();
+	
+	$('#userId').focusout(function(){
+		let userId = $('#userId').val();
 		
+		if(userId == ""){
+			$("#isUniqueId").html('');
+			isUniqueId= false;
+			return false;		
+		}	
 		$.ajax({
-			url : "idCheckService",
-			type : "post",
-			data : {userId:userId},
+			url : "/isUniqueId",
+			type : "get",
+			data : 'userId=' + $('#userId').val(),
 			datatype : 'json',
 			success : function(result){
 				if(result == 0){
-					$("#checkId").html('사용할 수 없는 ID입니다.');
-					$("#checkId").attr('color', 'red');
+					$("#isUniqueId").html('사용할 수 있는 ID입니다.');
+					checkUniqueId = true;
 				}else{
-					$("#checkId").html('사용할 수 있는 ID입니다.');
-					$("#checkId").attr('color', 'green');
+					$("#isUniqueId").html('사용할 수 없는 ID입니다.');	
+					checkUniqueId = false;
 				}
 			},
-			error : function(){
-				alert("서버 요청 실패...")
+			error : function(a, b, c){
+				alert("(아이디중복검사)서버 요청 실패...", a, b, c);
 			}
 		})
-	})
-	*/
+	});
+	
+	$('#nickName').focusout(function(){
+		let nickName = $('#nickName').val();
+		
+		if(nickName == ""){
+			$("#isUniqueNickname").html('');
+			checkUniqueNickname= false;
+			return false;		
+		}
+			
+		$.ajax({
+			url : "/isUniqueNickname",
+			type : "get",
+			data : 'nickName=' + $('#nickName').val(),
+			datatype : 'json',
+			success : function(result){
+				if(result == 0){
+					$("#isUniqueNickname").html('사용할 수 있는 별명입니다.');
+					checkUniqueNickname= true;
+				}else{
+					$("#isUniqueNickname").html('사용할 수 없는 별명입니다.');	
+					checkUniqueNickname= false;
+				}
+			},
+			error : function(a, b, c){
+				alert("(별명중복검사는 왜 만들어가지고;;)서버 요청 실패...", a, b, c);
+			}
+		})
+	});
+	
 </script>
 
 </body>

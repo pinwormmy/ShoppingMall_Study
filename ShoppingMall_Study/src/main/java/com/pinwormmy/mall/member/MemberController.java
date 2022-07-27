@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MemberController {
@@ -66,5 +67,19 @@ public class MemberController {
 		memberService.submitModifyMember(memberDTO);
 		httpSession.setAttribute("member", memberDTO);
 		return "myPage";
+	}
+	
+	@RequestMapping(value = "/isUniqueId")
+	@ResponseBody
+	public int isUniqueId(String userId) throws Exception {
+		int result = memberService.isUniqueId(userId);				
+		return result;
+	}
+	
+	@RequestMapping(value = "/isUniqueNickname")
+	@ResponseBody
+	public int isUniqueNickname(String nickName) throws Exception {
+		int result = memberService.isUniqueNickname(nickName);				
+		return result;
 	}
 }

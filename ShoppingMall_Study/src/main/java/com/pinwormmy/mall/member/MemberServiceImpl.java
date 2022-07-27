@@ -30,4 +30,15 @@ public class MemberServiceImpl implements MemberService {
 		memberMapper.submitModifyMember(memberDTO);		
 	}
 
+	@Override
+	public int isUniqueId(String id) throws Exception {
+		
+		return memberMapper.isUniqueId(id);
+	}
+
+	@Override
+	public int isUniqueNickname(String nickName) throws Exception {
+		return memberMapper.isUniqueNickname(nickName);
+	}
+
 }

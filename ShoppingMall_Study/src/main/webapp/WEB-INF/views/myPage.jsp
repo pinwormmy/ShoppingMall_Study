@@ -32,6 +32,7 @@ ${member.nickName}(${member.userId})님 환영합니다.<br><br>
 <br>
 <button type="button" onclick="location.href='/modifyMember'">회원 정보 수정</button>
 <button type="button" onclick="location.href='/showOrderList?userId=${member.userId}'">주문 목록</button>
+<button type="button" onclick="location.href='/'">메인 화면</button>
 <br>
 </body>
 </html>

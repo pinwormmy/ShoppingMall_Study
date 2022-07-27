@@ -22,4 +22,15 @@
 			where userId=#{userId}
 	</update>
   
+  	<select id="isUniqueId" resultType="Integer">
+  		select count(*) 
+  			from memberlist
+    		where userId=#{userId}
+  	</select>
+  	
+  	<select id="isUniqueNickname" resultType="Integer">
+  		select count(*) 
+  			from memberlist
+    		where nickname=#{nickname}
+  	</select>
 </mapper>
