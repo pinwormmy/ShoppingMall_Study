@@ -25,4 +25,9 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public void submitModifyMember(MemberDTO memberDTO) throws Exception {
+		memberMapper.submitModifyMember(memberDTO);		
+	}
+
 }

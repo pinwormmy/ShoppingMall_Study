@@ -15,5 +15,11 @@
 			where userid = #{userId}
 			and userpassword = #{userPassword}
 	</select>
+	
+	<update id="submitModifyMember">
+		update into memberList
+			set userPassword=#{userPassword}, userEmail=#{userEmail}, nickName=#{nickName}, address=#{address}
+			where userId=#{userId}
+	</update>
   
 </mapper>

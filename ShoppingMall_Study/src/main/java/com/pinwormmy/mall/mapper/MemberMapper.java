@@ -8,4 +8,6 @@ public interface MemberMapper {
 
 	public MemberDTO checkLoginData(MemberDTO memberDTO) throws Exception;
 
+	public void submitModifyMember(MemberDTO memberDTO) throws Exception;
+
 }

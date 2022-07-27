@@ -56,4 +56,16 @@ public class MemberController {
 		
 		return "myPage";
 	}
+	
+	@RequestMapping(value = "/modifyMember", method = RequestMethod.GET)
+	public String modifyMember() {
+		
+		return "modifyMember";
+	}
+	
+	@RequestMapping(value = "/submitModifyMember", method = RequestMethod.POST)
+	public String submitModifyMember(MemberDTO memberDTO, HttpSession httpSession) throws Exception {
+		memberService.submitModifyMember(memberDTO);		
+		return "redirect:/";
+	}
 }
