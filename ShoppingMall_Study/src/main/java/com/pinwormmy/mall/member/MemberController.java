@@ -64,7 +64,7 @@ public class MemberController {
 	@RequestMapping(value = "/submitModifyMember", method = RequestMethod.POST)
 	public String submitModifyMember(MemberDTO memberDTO, HttpSession httpSession) throws Exception {
 		memberService.submitModifyMember(memberDTO);
-		httpSession.invalidate(); // 회원정보 수정 후 로그아웃처리.
-		return "redirect:/";
+		httpSession.setAttribute("member", memberDTO);
+		return "myPage";
 	}
 }
