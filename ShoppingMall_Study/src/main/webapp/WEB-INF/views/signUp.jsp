@@ -83,7 +83,7 @@
 		alert("가입 완료. 환영~!~!")
 		submitSignUpForm.submit();
 	}
-	
+	/*
 	$('.userId').focusout(function(){
 		let userId = $('.userId').val();
 		
@@ -106,6 +106,7 @@
 			}
 		})
 	})
+	*/
 </script>
 
 </body>

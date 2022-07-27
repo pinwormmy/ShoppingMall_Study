@@ -5,13 +5,6 @@
 <title>마이페이지 - 쇼핑몰 만들면서 공부를 한다</title>
 </head>
 <body>
-
-<%@ include file="./include/header.jspf" %>
-
-<h1 style="font-size:42px; font-weight:700;">
-	마이페이지 - 쇼핑몰 만들면서 공부하기~!
-</h1>
-
 <!-- 
  학습 목표
 • 웹 에플리케이션과 HTTP API 개발에 익숙한 분
@@ -23,8 +16,21 @@
  - Git
  - Jenkins
  -->
- <br>
-<button type="button">회원 정보</button>
+<%@ include file="./include/header.jspf" %>
+
+<h1 style="font-size:42px; font-weight:700;">
+	마이페이지 - 쇼핑몰 만들면서 공부하기~!
+</h1>
+<hr>
+${member.nickName}(${member.userId})님 환영합니다.<br><br>
+
+이메일 : ${member.userEmail}<br><br>
+
+주소 : ${member.address}<br><br>
+
+<hr>
+<br>
+<button type="button" onclick="location.href='/modifyMember'">회원 정보 수정</button>
 <button type="button" onclick="location.href='/showOrderList?userId=${member.userId}'">주문 목록</button>
 <br>
 </body>
