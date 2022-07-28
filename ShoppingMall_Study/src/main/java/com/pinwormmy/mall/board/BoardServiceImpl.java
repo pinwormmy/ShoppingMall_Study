@@ -37,5 +37,10 @@ public class BoardServiceImpl implements BoardService {
 	public void deletePost(int postNum) throws Exception {
 		boardMapper.deletePost(postNum);		
 	}
+
+	@Override
+	public int countTotalPost() throws Exception {
+		return boardMapper.countTotalPost();
+	}
 	
 }

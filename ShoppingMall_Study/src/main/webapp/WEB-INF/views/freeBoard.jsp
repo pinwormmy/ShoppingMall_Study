@@ -14,11 +14,17 @@
 글번호 | 글제목  |  작성자 |   작성일    | 조회수  | <br>
 <hr>
 	<c:if test="${empty postList}">작성된 글이 없습니다. 글쓰기 버튼을 누르면 작성할 수 있습니다~!</c:if>
-	<c:forEach var="post" items="${postList}">	
+	<c:forEach var="post" items="${postList}" begin="${recentBeginPost}" end="${recentEndPost}">	
 		${post.postNum} | <a href="/readPost?postNum=${post.postNum}">${post.title}</a> | ${post.writer} | 
 		<fmt:formatDate pattern="yyyy-MM-dd" value="${post.regDate}"/> | ${post.views} | <br>
 	</c:forEach>
+<br>
 <hr>
+<a>이전</a>
+	<c:forEach var="page" begin="1" end="${totalPage}">
+		<a href="/freeBoardPage?recentPage=${page}">${page}</a>
+	</c:forEach>
+<a>다음</a>
 <br>
 <button type="button" onclick="location.href='/writePost'">글쓰기</button> <br>
 <button type="button" onclick="location.href='/'"> 메인화면으로 </button> <br>

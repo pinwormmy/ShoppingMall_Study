@@ -15,9 +15,55 @@ public class BoardController {
 	private BoardService boardService;
 		
 	@RequestMapping(value = "/freeBoard", method = RequestMethod.GET)
-	public String goFreeboard(Model model) throws Exception {		
+	public String goFreeboard(Model model) throws Exception {	
+		
 		List<FreeBoardDTO> postList = boardService.showPostList();		
-		model.addAttribute("postList", postList);		
+		model.addAttribute("postList", postList);	
+		
+		int totalPostCount = boardService.countTotalPost();
+		int recentPageLimit = 10;
+		int recentBeginPage = 1;		
+		int recentPage = 1; 	
+		int recentEndPost = recentPage * recentPageLimit - 1;
+		int recentBeginPost = recentEndPost - (recentPageLimit - 1);		
+		int recentEndPage = recentPageLimit - 1;
+		int totalPage = (int)Math.ceil((double)totalPostCount/recentPageLimit);
+		
+		System.out.println("총페이지 수는 ? " + totalPage);
+		
+		model.addAttribute("recentPage", recentPage);
+		model.addAttribute("recentBeginPage", recentBeginPage);
+		model.addAttribute("recentEndPage", recentEndPage);
+		model.addAttribute("recentBeginPost", recentBeginPost);
+		model.addAttribute("recentEndPost", recentEndPost);		
+		model.addAttribute("totalPage", totalPage);		
+		
+		return "freeBoard";
+	}
+	
+	@RequestMapping(value = "/freeBoardPage", method = RequestMethod.GET)
+	public String freeBoardPage(Model model, int recentPage) throws Exception {	
+		
+		List<FreeBoardDTO> postList = boardService.showPostList();		
+		model.addAttribute("postList", postList);	
+		
+		int totalPostCount = boardService.countTotalPost();
+		int recentPageLimit = 10;
+		int recentBeginPage = 1;		 	
+		int recentEndPost = recentPage * recentPageLimit - 1;
+		int recentBeginPost = recentEndPost - (recentPageLimit - 1);		
+		int recentEndPage = recentPageLimit - 1;
+		int totalPage = (int)Math.ceil((double)totalPostCount/recentPageLimit);
+		
+		System.out.println("총페이지 수는 ? " + totalPage);
+		
+		model.addAttribute("recentPage", recentPage);
+		model.addAttribute("recentBeginPage", recentBeginPage);
+		model.addAttribute("recentEndPage", recentEndPage);
+		model.addAttribute("recentBeginPost", recentBeginPost);
+		model.addAttribute("recentEndPost", recentEndPost);		
+		model.addAttribute("totalPage", totalPage);	
+		
 		return "freeBoard";
 	}
 	

@@ -14,4 +14,6 @@ public interface BoardService {
 
 	public void deletePost(int postNum) throws Exception;
 
+	public int countTotalPost() throws Exception;
+
 }

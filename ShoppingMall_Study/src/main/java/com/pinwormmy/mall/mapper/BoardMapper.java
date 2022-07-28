@@ -15,4 +15,6 @@ public interface BoardMapper {
 	public void submitModifyPost(FreeBoardDTO freeBoardDTO) throws Exception;
 
 	public void deletePost(int postNum) throws Exception;
+
+	public int countTotalPost() throws Exception;
 }

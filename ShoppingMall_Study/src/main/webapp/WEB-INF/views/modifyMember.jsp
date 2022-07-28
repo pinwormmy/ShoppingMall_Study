@@ -7,6 +7,8 @@
 </head>
 <body>
 
+<%@ include file="./include/header.jspf" %>
+
 <h2>회원정보 수정</h2>
 
 	<div>
