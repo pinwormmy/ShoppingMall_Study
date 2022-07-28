@@ -20,23 +20,30 @@ public class BoardController {
 		List<FreeBoardDTO> postList = boardService.showPostList();		
 		model.addAttribute("postList", postList);	
 		
-		int totalPostCount = boardService.countTotalPost();
-		int recentPageLimit = 10;
-		int recentBeginPage = 1;		
-		int recentPage = 1; 	
-		int recentEndPost = recentPage * recentPageLimit - 1;
-		int recentBeginPost = recentEndPost - (recentPageLimit - 1);		
-		int recentEndPage = recentPageLimit - 1;
-		int totalPage = (int)Math.ceil((double)totalPostCount/recentPageLimit);
+		int recentPage = 1; 
+		int totalPostCount = boardService.countTotalPost();		
+		int displayPostLimit = 10;
+		int pageSetLimit = 10;
+		int pageBeginPoint = (recentPage-1) / pageSetLimit * pageSetLimit + 1;		
+		int postEndPoint = recentPage * displayPostLimit - 1;
+		int postBeginPoint = postEndPoint - (displayPostLimit - 1);				
+		int totalPage = (int)Math.ceil((double)totalPostCount/displayPostLimit);
+		int pageEndPoint = pageBeginPoint + pageSetLimit - 1;	
+		if(pageEndPoint > totalPage)
+			pageEndPoint = totalPage;
+		int prevPageSetPoint = pageEndPoint - pageSetLimit;
+		int nextPageSetPoint = pageBeginPoint + pageSetLimit;		
 		
-		System.out.println("총페이지 수는 ? " + totalPage);
+		System.out.println("다음 페이지셋 ? " + nextPageSetPoint);
 		
-		model.addAttribute("recentPage", recentPage);
-		model.addAttribute("recentBeginPage", recentBeginPage);
-		model.addAttribute("recentEndPage", recentEndPage);
-		model.addAttribute("recentBeginPost", recentBeginPost);
-		model.addAttribute("recentEndPost", recentEndPost);		
-		model.addAttribute("totalPage", totalPage);		
+		model.addAttribute("recentPage", recentPage);		
+		model.addAttribute("postBeginPoint", postBeginPoint);
+		model.addAttribute("postEndPoint", postEndPoint);	
+		model.addAttribute("pageBeginPoint", pageBeginPoint);
+		model.addAttribute("pageEndPoint", pageEndPoint);
+		model.addAttribute("prevPageSetPoint", prevPageSetPoint);
+		model.addAttribute("nextPageSetPoint", nextPageSetPoint);		
+		model.addAttribute("totalPage", totalPage);
 		
 		return "freeBoard";
 	}
@@ -47,22 +54,29 @@ public class BoardController {
 		List<FreeBoardDTO> postList = boardService.showPostList();		
 		model.addAttribute("postList", postList);	
 		
-		int totalPostCount = boardService.countTotalPost();
-		int recentPageLimit = 10;
-		int recentBeginPage = 1;		 	
-		int recentEndPost = recentPage * recentPageLimit - 1;
-		int recentBeginPost = recentEndPost - (recentPageLimit - 1);		
-		int recentEndPage = recentPageLimit - 1;
-		int totalPage = (int)Math.ceil((double)totalPostCount/recentPageLimit);
+		int totalPostCount = boardService.countTotalPost();		
+		int displayPostLimit = 10;
+		int pageSetLimit = 10;
+		int pageBeginPoint = (recentPage-1) / pageSetLimit * pageSetLimit + 1;		
+		int postEndPoint = recentPage * displayPostLimit - 1;
+		int postBeginPoint = postEndPoint - (displayPostLimit - 1);				
+		int totalPage = (int)Math.ceil((double)totalPostCount/displayPostLimit);
+		int pageEndPoint = pageBeginPoint + pageSetLimit - 1;	
+		if(pageEndPoint > totalPage)
+			pageEndPoint = totalPage;
+		int prevPageSetPoint = pageEndPoint - pageSetLimit;
+		int nextPageSetPoint = pageBeginPoint + pageSetLimit;		
 		
-		System.out.println("총페이지 수는 ? " + totalPage);
+		System.out.println("다음 페이지셋 ? " + nextPageSetPoint);
 		
-		model.addAttribute("recentPage", recentPage);
-		model.addAttribute("recentBeginPage", recentBeginPage);
-		model.addAttribute("recentEndPage", recentEndPage);
-		model.addAttribute("recentBeginPost", recentBeginPost);
-		model.addAttribute("recentEndPost", recentEndPost);		
-		model.addAttribute("totalPage", totalPage);	
+		model.addAttribute("recentPage", recentPage);		
+		model.addAttribute("postBeginPoint", postBeginPoint);
+		model.addAttribute("postEndPoint", postEndPoint);	
+		model.addAttribute("pageBeginPoint", pageBeginPoint);
+		model.addAttribute("pageEndPoint", pageEndPoint);
+		model.addAttribute("prevPageSetPoint", prevPageSetPoint);
+		model.addAttribute("nextPageSetPoint", nextPageSetPoint);		
+		model.addAttribute("totalPage", totalPage);
 		
 		return "freeBoard";
 	}
