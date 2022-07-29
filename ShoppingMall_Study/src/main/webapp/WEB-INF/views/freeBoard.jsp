@@ -14,20 +14,20 @@
 글번호 | 글제목  |  작성자 |   작성일    | 조회수  | <br>
 <hr>
 	<c:if test="${empty postList}">작성된 글이 없습니다. 글쓰기 버튼을 누르면 작성할 수 있습니다~!</c:if>
-	<c:forEach var="post" items="${postList}" begin="${postBeginPoint}" end="${postEndPoint}">	
+	<c:forEach var="post" items="${postList}" begin="${page.postBeginPoint}" end="${page.postEndPoint}">	
 		${post.postNum} | <a href="/readPost?postNum=${post.postNum}">${post.title}</a> | ${post.writer} | 
 		<fmt:formatDate pattern="yyyy-MM-dd" value="${post.regDate}"/> | ${post.views} | <br>
 	</c:forEach>
 <br>
 <hr>
-<c:if test="${prevPageSetPoint >= 1}">
-<a href="/freeBoardPage?recentPage=${prevPageSetPoint}">이전</a>
+<c:if test="${page.prevPageSetPoint >= 1}">
+<a href="/freeBoardPage?recentPage=${page.prevPageSetPoint}">이전</a>
 </c:if>
-	<c:forEach var="page" begin="${pageBeginPoint}" end="${pageEndPoint}">
-		<a href="/freeBoardPage?recentPage=${page}">${page}</a>
+	<c:forEach var="countPage" begin="${page.pageBeginPoint}" end="${page.pageEndPoint}">
+		<a href="/freeBoardPage?recentPage=${countPage}">${countPage}</a>
 	</c:forEach>
-<c:if test="${nextPageSetPoint <= totalPage}">
-<a href="/freeBoardPage?recentPage=${nextPageSetPoint}">다음</a>
+<c:if test="${page.nextPageSetPoint <= page.totalPage}">
+<a href="/freeBoardPage?recentPage=${page.nextPageSetPoint}">다음</a>
 </c:if>
 <br>
 <button type="button" onclick="location.href='/writePost'">글쓰기</button> <br>

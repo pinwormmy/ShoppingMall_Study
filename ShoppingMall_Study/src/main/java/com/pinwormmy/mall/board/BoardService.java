@@ -15,5 +15,8 @@ public interface BoardService {
 	public void deletePost(int postNum) throws Exception;
 
 	public int countTotalPost() throws Exception;
-
+	
+	public PageDTO pageSetting() throws Exception;
+	
+	public PageDTO pageSetting(int recentPage) throws Exception;
 }
