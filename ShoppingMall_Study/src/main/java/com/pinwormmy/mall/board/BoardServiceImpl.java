@@ -58,11 +58,11 @@ public class BoardServiceImpl implements BoardService {
 	
 	private PageDTO utilLoadingForPage(int recentPage) throws Exception {
 		int totalPostCount = countTotalPost();		
-		PageService util = initPageUtil(15, 15);
+		PageService util = initPageUtil();
 		return util.calculatePage(recentPage, totalPostCount);
 	}
 	
-	private PageService initPageUtil(int displayPostLimit, int pageSetLimit) {
+	private PageService initPageUtil() {
 		PageService util = new PageService();
 		util.setDISPLAY_POST_LIMIT(15);
 		util.setPAGESET_LIMIT(15);

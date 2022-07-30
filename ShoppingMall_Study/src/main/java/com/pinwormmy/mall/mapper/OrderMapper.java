@@ -18,4 +18,6 @@ public interface OrderMapper {
 	public List<OrderInfoDTO> showOrderList(String userId) throws Exception;
 
 	public void resetCart(String userId) throws Exception;
+
+	public int countTotalProductInCart(String userId) throws Exception;
 }

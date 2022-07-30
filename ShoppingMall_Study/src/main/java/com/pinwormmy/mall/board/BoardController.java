@@ -20,8 +20,7 @@ public class BoardController {
 	public String goFreeboard(Model model) throws Exception {			
 		List<FreeBoardDTO> postList = boardService.showPostList();		
 		model.addAttribute("postList", postList);			
-		PageDTO page = boardService.pageSetting();
-		System.out.println("컨트롤러에서 받은 값 확인 : " + page.getNextPageSetPoint());
+		PageDTO page = boardService.pageSetting();		
 		model.addAttribute("page", page);			
 		return "freeBoard";
 	}

@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.pinwormmy.mall.util.PageDTO;
+
 @Controller
 public class OrderController {
 
@@ -19,7 +21,17 @@ public class OrderController {
 	public String showCart(Model model, String userId) throws Exception {
 		List<CartDTO> showCart = orderService.showCart(userId);		
 		model.addAttribute("cartList", showCart);
-
+		PageDTO page = orderService.pageSetting(userId);		
+		model.addAttribute("page", page);			
+		return "cart";
+	}
+	
+	@RequestMapping(value = "/showCartPage", method = RequestMethod.GET)
+	public String showCart(Model model, String userId, int recentPage) throws Exception {
+		List<CartDTO> showCart = orderService.showCart(userId);		
+		model.addAttribute("cartList", showCart);
+		PageDTO page = orderService.pageSetting(recentPage, userId);		
+		model.addAttribute("page", page);			
 		return "cart";
 	}
 	

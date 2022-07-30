@@ -25,7 +25,7 @@
 			from cart a, productList b
 			where a.productNum=b.productNum
             and userId=#{userId}
-			order by cartNum asc
+			order by cartNum desc
 	</select>	
 	
 	<insert id="addCart">
@@ -64,7 +64,11 @@
 		select orderNum, userId, address, paymentType, price, regDate, credit_num, status
 			from orderInfo
 			where userId=#{userId}
-			order by orderNum asc
+			order by orderNum desc
 	</select>	
   
+  	<select id="countTotalProductInCart" parameterType="String" resultType="int">
+		select count(*) from CART
+    		where userid = #{userId}
+	</select>
 </mapper>
