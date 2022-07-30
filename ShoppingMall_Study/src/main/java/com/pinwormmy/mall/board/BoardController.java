@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.pinwormmy.mall.util.PageDTO;
+
 @Controller
 public class BoardController {
 	
@@ -15,24 +17,21 @@ public class BoardController {
 	private BoardService boardService;
 		
 	@RequestMapping(value = "/freeBoard", method = RequestMethod.GET)
-	public String goFreeboard(Model model) throws Exception {	
-		
+	public String goFreeboard(Model model) throws Exception {			
 		List<FreeBoardDTO> postList = boardService.showPostList();		
 		model.addAttribute("postList", postList);			
 		PageDTO page = boardService.pageSetting();
-		model.addAttribute("page", page);	
-		
+		System.out.println("컨트롤러에서 받은 값 확인 : " + page.getNextPageSetPoint());
+		model.addAttribute("page", page);			
 		return "freeBoard";
 	}
 	
 	@RequestMapping(value = "/freeBoardPage", method = RequestMethod.GET)
-	public String freeBoardPage(Model model, int recentPage) throws Exception {	
-		
+	public String freeBoardPage(Model model, int recentPage) throws Exception {			
 		List<FreeBoardDTO> postList = boardService.showPostList();		
 		model.addAttribute("postList", postList);	
 		PageDTO page = boardService.pageSetting(recentPage);
-		model.addAttribute("page", page);		
-		
+		model.addAttribute("page", page);
 		return "freeBoard";
 	}
 	

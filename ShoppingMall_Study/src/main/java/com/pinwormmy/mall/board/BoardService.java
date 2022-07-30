@@ -2,6 +2,8 @@ package com.pinwormmy.mall.board;
 
 import java.util.List;
 
+import com.pinwormmy.mall.util.PageDTO;
+
 public interface BoardService {
 
 	public void submitPost(FreeBoardDTO freeBoardDTO) throws Exception;
