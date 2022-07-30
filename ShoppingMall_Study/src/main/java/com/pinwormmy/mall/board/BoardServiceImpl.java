@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.pinwormmy.mall.mapper.BoardMapper;
 import com.pinwormmy.mall.util.PageDTO;
-import com.pinwormmy.mall.util.UtilService;
+import com.pinwormmy.mall.util.PageService;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -58,7 +58,14 @@ public class BoardServiceImpl implements BoardService {
 	
 	private PageDTO utilLoadingForPage(int recentPage) throws Exception {
 		int totalPostCount = countTotalPost();		
-		UtilService util = new UtilService();
+		PageService util = initPageUtil(15, 15);
 		return util.calculatePage(recentPage, totalPostCount);
+	}
+	
+	private PageService initPageUtil(int displayPostLimit, int pageSetLimit) {
+		PageService util = new PageService();
+		util.setDISPLAY_POST_LIMIT(15);
+		util.setPAGESET_LIMIT(15);
+		return util;
 	}
 }
