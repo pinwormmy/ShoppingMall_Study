@@ -13,19 +13,12 @@
 </h1>
 
 <!-- 
- 학습 목표
-• 웹 에플리케이션과 HTTP API 개발에 익숙한 분
-• 단위/통합 테스트코드 작성이 가능하신 분
-• 다음 기술에 익숙하신 분
- - JAVA (JDK 8 이상), Spring Framework, JPA
- - RDBMS, Redis
- - AWS (S3, SQS, SNS, RDS, Elasticache, Lambda 등)
- - Git
- - Jenkins
+컴퓨터공학 전공 혹은 그에 준하는 전공 및 지식을 보유하신 분
+Kotlin/Java/Python/Ruby 등 하나 이상의 프로그래밍 언어 전문성을 보유하신 분
+RDBMS 및 다양한 NoSQL 데이터베이스에 대한 지식을 보유하신 분
  -->
 
-<p>주문(결제)하기, 상품재고, 게시판(공지,리뷰) 구현하기</p>
-<p>회원정보 구체적으로 제작. 보유캐시</p>
+<p>게시물 댓글, 상품 리뷰 기능 만들기</p>
 <p>디자인(CSS)은 나중에 리액트할때 같이</p>
 
 <br>
