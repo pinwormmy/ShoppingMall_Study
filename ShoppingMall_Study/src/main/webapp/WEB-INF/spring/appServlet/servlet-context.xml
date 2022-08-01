@@ -45,5 +45,26 @@
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="maxUploadSize" value="10485760" />
 	</beans:bean>
+	
+	<!-- 인터셉터 객체 생성 -->
+	<beans:bean id="AuthLoginInterceptor" class="com.pinwormmy.mall.member.AuthLoginInterceptor"></beans:bean>
+	<beans:bean id="AdminInterceptor" class="com.pinwormmy.mall.member.AdminInterceptor"></beans:bean>
+	<!-- Interceptor 설정 -->
+	<interceptors>
+	    <interceptor>
+	        <mapping path="/**"/>         
+	        <exclude-mapping path="/resources/**"/>
+	        <exclude-mapping path="/"/>
+	        <exclude-mapping path="/login"/>
+	        <exclude-mapping path="/logout"/>
+	        <exclude-mapping path="/productDetails"/>
+	        <exclude-mapping path="/ckUpload/**" />
+	        <beans:ref bean="AuthLoginInterceptor"/>
+	    </interceptor>
+	    <interceptor>
+	        <mapping path="/addProduct/**"/>        
+	        <beans:ref bean="AdminInterceptor"/>
+	    </interceptor>
+	</interceptors>
 		
 </beans:beans>
