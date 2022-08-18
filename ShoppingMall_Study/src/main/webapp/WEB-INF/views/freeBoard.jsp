@@ -31,6 +31,16 @@
 </c:if>
 <br>
 <button type="button" onclick="location.href='/writePost'">글쓰기</button> <br>
-<button type="button" onclick="location.href='/'"> 메인화면으로 </button> <br>
+<button type="button" onclick="location.href='/'"> 메인화면으로 </button> <br><br>
+<form action="/searchPost">
+<select name="keywordType">
+	<option value="titleAndContent">제목+내용</option>
+	<option value="title">제목</option>
+	<option value="content">내용</option>
+	<option value="writer">작성자</option>
+</select>
+<input name="keyword">
+<button>검색</button>
+</form>
 </body>
 </html>
