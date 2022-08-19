@@ -33,7 +33,7 @@ public class BoardController {
 		model.addAttribute("page", page);
 		return "freeBoard";
 	}
-	
+		
 	@RequestMapping(value = "/writePost", method = RequestMethod.GET)
 	public String writePost() throws Exception {		
 		return "writePost";
